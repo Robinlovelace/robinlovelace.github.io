@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Robin Lovelace</title>
+<link>https://robinlovelace.net/posts.html</link>
+<atom:link href="https://robinlovelace.net/posts.xml" rel="self" type="application/rss+xml"/>
+<description>Personal website of Robin Lovelace</description>
+<image>
+<url>https://robinlovelace.net/files/images/avatar.jpg</url>
+<title>Robin Lovelace</title>
+<link>https://robinlovelace.net/posts.html</link>
+</image>
+<generator>quarto-1.9.37</generator>
+<lastBuildDate>Fri, 10 Apr 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Website update: Quarto migration, HugoBlox links, and GitHub Pages at the apex domain</title>
+  <link>https://robinlovelace.net/posts/2026-04-10-quarto-website-update/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I have just updated my website stack and wanted to document what changed and why. The short version is that I looked at migration options from Wowchemy, moved the site to Quarto, and improved how project pages are published under robinlovelace.net.</p>
+<p>Looking back over recent commits in this repo, the practical work included switching to native GitHub Pages deploys, fixing event content and front matter, and consolidating the Quarto-based structure. I also wanted to write this up because the ecosystem has shifted in a way that can be confusing if you have not looked recently.</p>
+<section id="looking-at-migration-options-wowchemy-and-hugoblox" class="level2">
+<h2 class="anchored" data-anchor-id="looking-at-migration-options-wowchemy-and-hugoblox">Looking at migration options: Wowchemy and HugoBlox</h2>
+<p>I explored options including migrating from Wowchemy to <a href="https://github.com/HugoBlox">HugoBlox</a>. If you search for Wowchemy on GitHub today, there are no public repositories under <a href="https://github.com/wowchemy">github.com/wowchemy</a>. The project activity has moved under the HugoBlox organisation: <a href="https://github.com/HugoBlox">github.com/HugoBlox</a>.</p>
+<p>So one path was to stay in the Hugo ecosystem and migrate templates and content there. The other path was to simplify and move to Quarto for content-first publishing and easier long-term maintenance. I went with Quarto.</p>
+</section>
+<section id="converting-content" class="level2">
+<h2 class="anchored" data-anchor-id="converting-content">Converting content</h2>
+<p>A key tool in this process was <a href="https://github.com/lore-labs/academic-file-converter">academic-file-converter</a>. It did an excellent job of converting legacy Academic/Wowchemy-style content into formats that are much easier to work with in a modern Quarto workflow.</p>
+<p>For anyone sitting on years of posts, events, and publication metadata, this is the kind of utility that turns a risky migration into a manageable one.</p>
+<p>Another useful piece of the Quarto ecosystem is the Academicons extension workflow documented here: <a href="https://rmflight.github.io/posts/2022-12-03-using-academicons-in-your-quarto-blog/" class="uri">https://rmflight.github.io/posts/2022-12-03-using-academicons-in-your-quarto-blog/</a>. <a href="https://jpswalsh.github.io/academicons/">Academicons</a> are great for academic profile links (ORCID, Google Scholar and similar), but the experience is still more extension-oriented and less integrated than the tightly packaged academic site features available in HugoBlox. That is one reason I think Quarto could benefit from more high-level, Wowchemy/HugoBlox-style extensions for academic websites.</p>
+</section>
+<section id="legacy-site-archive" class="level2">
+<h2 class="anchored" data-anchor-id="legacy-site-archive">Legacy site archive</h2>
+<p>The old version of my site remains online here:</p>
+<ul>
+<li><a href="http://robinlovelace.net/old-site/" class="uri">http://robinlovelace.net/old-site/</a></li>
+</ul>
+<p>That gives a stable reference point while the new stack evolves.</p>
+</section>
+<section id="domain-and-github-pages-setup" class="level2">
+<h2 class="anchored" data-anchor-id="domain-and-github-pages-setup">Domain and GitHub Pages setup</h2>
+<p>With help from <a href="https://jakubnowosad.com/">Jakub Nowosad</a>, I configured my domain so GitHub Pages can serve from the apex domain setup. The practical result is that repositories with <code>gh-pages</code> outputs appear automatically under robinlovelace.net.</p>
+<p>For example:</p>
+<ul>
+<li>New URL: <a href="https://robinlovelace.net/rs5c/" class="uri">https://robinlovelace.net/rs5c/</a></li>
+<li>Previous URL: <a href="https://robinlovelace.github.io/rs5c/" class="uri">https://robinlovelace.github.io/rs5c/</a></li>
+</ul>
+<p>The old GitHub-hosted URL now redirects, so links continue to work while the canonical home is on robinlovelace.net.</p>
+</section>
+<section id="questions-for-next-improvements" class="level2">
+<h2 class="anchored" data-anchor-id="questions-for-next-improvements">Questions for next improvements</h2>
+<p>I would appreciate feedback on what to prioritise next. A few specific questions:</p>
+<ol type="1">
+<li>Which area should I improve first: publications pages, project pages, or events/talks pages?</li>
+<li>Do you prefer a minimal homepage or one with more featured content blocks?</li>
+<li>Should I invest in a Quarto extension specifically for publication handling to get closer to the HugoBlox experience?</li>
+<li>Are there old URLs (besides <code>/rs5c/</code>) that should get explicit redirect checks?</li>
+</ol>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<ul>
+<li>Site source code: <a href="https://github.com/robinlovelace/robinlovelace.net" class="uri">https://github.com/robinlovelace/robinlovelace.net</a></li>
+<li>HugoBlox organisation: <a href="https://github.com/HugoBlox" class="uri">https://github.com/HugoBlox</a></li>
+<li>Wowchemy org page: <a href="https://github.com/wowchemy" class="uri">https://github.com/wowchemy</a></li>
+<li>academic-file-converter: <a href="https://github.com/lore-labs/academic-file-converter" class="uri">https://github.com/lore-labs/academic-file-converter</a></li>
+<li>Academicons extension post: <a href="https://rmflight.github.io/posts/2022-12-03-using-academicons-in-your-quarto-blog/" class="uri">https://rmflight.github.io/posts/2022-12-03-using-academicons-in-your-quarto-blog/</a></li>
+<li>Academicons project: <a href="https://jpswalsh.github.io/academicons/" class="uri">https://jpswalsh.github.io/academicons/</a></li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://robinlovelace.net/posts/2026-04-10-quarto-website-update/</guid>
+  <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Copenhagenize: examining a thesis on urban data science for sustainable mobility and developing bike/research networks</title>
+  <link>https://robinlovelace.net/posts/2025-04-03-copenhagenize/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I spent the last three days in Copenhagen to examine a <a href="https://en.itu.dk/Research/PhD-Programme/PhD-Defences/PhD-Defences-2025/March/Anastassia-Vybornova">thesis</a>. I assumed the capital of bike-friendly Denmark and inspiration for the ‘<a href="https://copenhagenizeindex.eu/">Copenhaganize index</a>’ (which Copenhagen of course leads, with a score of 90.2% as of 2019) would have a lot to offer a transport researcher, and it did not disappoint. For some thoughts, links and photos from the trip, read on!</p>
+<p>The reason for the trip was to be part of the committee examining a PhD. This was the second PhD defense (also known as a viva) that I’ve done, and the first outside the UK, so quite a big occasion for me.<sup>1</sup> It was also a big occasion for the NERDS group in which the research was based, as it was the first PhD that had been completed in the lab.</p>
+<p>The “PhD defense” (also known as the viva) processes <a href="https://eprints.bournemouth.ac.uk/37508/7/624-Article%20Text-966-1-10-20230112.pdf">vary</a> from country to country and even from university-to-university within the same country <span class="citation" data-cites="vanteijlingen2022">(Teijlingen et al. 2022)</span>. In the UK, vivas take place in a “<a href="https://vitae.ac.uk/resource/working-in-research/doctoral-research/the-viva/">non-public</a>” space, typically with two examiners, one internal (based in the same institution as the student) and the other external (a subject expert from a different institution). In Denmark (and many other countries) the defense happens in public. There are three examiners, one of whom “<a href="https://www.dtu.dk/english/-/media/dtudk/uddannelse/phd-udannelse/dokumenter/dtus-rules-for-the-phd-programme-may-2023.pdf">must be from outside of Denmark, unless this is not practicable considering the subject in question</a>”.</p>
+<p>The thesis I examined was Anastassia Vybornova’s, titled “Urban Data Science for Sustainable Mobility”.</p>
+<p>As the title suggests, it was a multi-disciplinary thesis, combining elements of data science (including reproducible research and open source software development), network science, transport/mobility, and urban planning. 4 out of the 8 papers focussed on cycle network design, a topic that is right up my street, and something that I could comment on. This focus on cycling: research into active modes is “dwarfed” research into motorised modes, as the thesis rightly points out, and the papers in this thesis help address the imbalance.</p>
+<p>I recommend anyone with an interest in the topic to take a read of the papers (see below), you can also download the <a href="https://en.itu.dk/Research/PhD-Programme/PhD-Defences/PhD-Defences-2025/March/Anastassia-Vybornova">full PhD Thesis from the website itu.dk</a>. A particular highlight for me was the strength of the introduction that tied all the papers together: each aspect of the thesis’s title Urban Data Science for Sustainable Mobility was discussed and defined upfront, setting the scene for the papers.</p>
+<p>I was particularly struck by the discussion of data science, something that I often take for granted. Data science is defined in the thesis succinctly and correctly as “learning from data”. One thing that I learned from the thesis was that the term “data science” was popularised in a <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">article</a> outlining how the term began to be used in a commercial context, for example “to optimize the service contracts and maintenance intervals for industrial products” according to one example from this highly-cited (and seemingly seminal) article <span class="citation" data-cites="davenport2012">(Davenport and Patil 2012)</span>.</p>
+<p>This early commercial focus (or even its reason for existing) may come as a surprise given how prominent the term is in academic and public-sector research: data science is now taught as an academic subject in many if not most universities, and several academic journals bear its name. There are even job titles such as my job as Professor of Transport Data Science. Contemporary usage emphasise computational and data-driven techniques while perhaps glossing-over the term’s commercial origins. That’s not to imply that data science is bad, but the history of the term suggests that it could benefit from being reclaimed, as stated in this apt quote from the [thesis]:</p>
+<blockquote class="blockquote">
+<p>The challenge therefore lies in repurposing digital tools and methods, putting them into service of a sustainable mobility shift instead.</p>
+</blockquote>
+<p>The contents of the thesis ‘walk the walk’ by tackling the challenge head-on, producing important methodological and empirical contributions — plus some valuable open source software packages and reproducible code that future work can build on — in the process.</p>
+<p>The thesis is composed of the following papers:</p>
+<ol type="1">
+<li>Paper 1: “A shape-based heuristic for the detection of urban block artifacts in street networks” <span class="citation" data-cites="fleischmann2024">(Fleischmann and Vybornova 2024)</span></li>
+<li>Paper 2: “BikeDNA: A tool for bicycle infrastructure data and network assessment” <span class="citation" data-cites="vierø2024">(Vierø et al. 2024)</span></li>
+<li>Paper 3: “How Good Is Open Bicycle Network Data? A Countrywide Case Study of Denmark” <span class="citation" data-cites="vierø2025">(Vierø et al. 2025)</span></li>
+<li>Paper 4: “You Don’t Have to Live Next to Me: Towards a Demobilization of Individualistic Bias in Computational Approaches to Urban Segregation” <span class="citation" data-cites="vybornova2024">(Vybornova and Verma 2024)</span></li>
+<li>Paper 5: “Automated Detection of Missing Links in Bicycle Networks” <span class="citation" data-cites="vybornova2022">(Vybornova et al. 2022)</span></li>
+<li>Paper 6: “BikeNodePlanner: a data-driven decision support tool for bicycle node network planning” <span class="citation" data-cites="vybornova">(Vybornova et al., n.d.)</span></li>
+<li>Paper 7: “superblockify: A Python Package for Automated Generation, Visualization, and Analysis of Potential Superblocks in Cities” <span class="citation" data-cites="büth2024">(Büth et al. 2024)</span></li>
+<li>Paper 8: “Urban highways are barriers to social ties” <span class="citation" data-cites="aiello">(Aiello et al., n.d.)</span></li>
+</ol>
+<p>That is a <em>lot</em> of ground covered in a single PhD and testament to the collaborative teamwork in action in the <a href="https://nerds.itu.dk/">NERDS lab</a>. After an excellent presentation providing an overview of the work, and ideas that held the papers listed above together into a cohesive whole, there was an in-depth discussion in which the others on the committee and I asked many questions and got detailed answers. Happy to say: Anastassia passed with flying colours 🎉</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-2.png" class="img-fluid figure-img" alt="Meal in Copenhagen"></p>
+<figcaption>Meal with Anastassia, PhD supervisor Michael, and the 3/2rds of the examination committee to celebrate</figcaption>
+</figure>
+</div>
+<section id="the-city" class="level2">
+<h2 class="anchored" data-anchor-id="the-city">The city</h2>
+<p>The city of Copenhagen is beautiful, child-friendly and highly conducive to active travel, things that are enabled by comparatively low (but still harmful) levels of car ownership and driving in city. There are <a href="https://www.detail.de/de_en/kobehavn-englisch">entire books</a> on the topic that I cannot do justice to here, so I will just share some photos I took during the trip.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-4.png" class="img-fluid figure-img"></p>
+<figcaption>Photo of Manchester from the train to the airport on the way to Copenhagen, highlighting the fact that there is great potential to ‘copenhagenize’ and make existing cities more livable. Small interventions like providing clearly demarcated space for cycling and narrowing the carriageway that has low levels of traffic could help.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-5.png" class="img-fluid figure-img"></p>
+<figcaption>Illustration of “edge lane roads” implemented on a growing number of residential roads in Denmark, providing a cost-effective way of creating space for cycling while reducing vehicle speeds (note the lack of a centreline, encouraging safe driving). Source, the <a href="https://cyclingsolutions.info/edge-lane-roads/">Cycling Embassy of Denmark website</a>.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-6.png" class="img-fluid figure-img"></p>
+<figcaption>Another photo of central Manchester from the train on the way to the airport. This image shows that there are some very livable and beautiful spaces in the UK, a major issue being the lack of safe active travel routes between them.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-7.png" class="img-fluid figure-img"></p>
+<figcaption>The plane that took me to Copenhagen. There is a tension between the benefits of international links which can grow with in-person meetings and the benefits of reducing travel demand, highlighted by the “<a href="https://noflyclimatesci.org/">No Fly Climate Sci</a>” movement and the article “<a href="https://www.theguardian.com/travel/2019/may/22/could-you-give-up-flying-meet-the-no-plane-pioneers">Could you give up flying? Meet the no-plane pioneers</a>”.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-8.png" class="img-fluid figure-img"></p>
+<figcaption>The first bit of cycle infrastructure I came across on the walk from the metro station to Zoku, the place I was staying. This infrastructure is not really good from a utilitarian perspective but it’s good from a fun perspective, highlighting the fact that infrastructure should be fun and child-friendly in places.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-9.png" class="img-fluid figure-img"></p>
+<figcaption>The first view I got of the rush hour, from a run on my first day in Copenhagen. Note: cycles outnumber cars by around 3:1. I suspect that that modal split is about right for many roads in central Copenhagen.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-10.png" class="img-fluid figure-img"></p>
+<figcaption>The main building of the <a href="https://itu.dk/">IT University of Copenhagen</a> where the research and defense took place.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-11.png" class="img-fluid figure-img"></p>
+<figcaption>The view from an office in ITU.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-13.png" class="img-fluid figure-img"></p>
+<figcaption>Anastassia in action during the presentation of the thesis</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-14.png" class="img-fluid figure-img"></p>
+<figcaption>A typical arterial road in Denmark. Note: the amount of space taken by private motorised modes is greater than the amount of space dedicated for active travel. This suggests that there is room for improvement for active travel provision and quick wins even in cities with active travel levels that are high compared with most cities worldwide but which still have a high level of car ownership and use in absolute terms.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-15.png" class="img-fluid figure-img"></p>
+<figcaption>One of many bridges for active travel in Copenhagen. Note the width of the paths and space enabling high levels of cycle and foot traffic. It is a beautiful site to behold.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-17.png" class="img-fluid figure-img"></p>
+<figcaption>Another car-free bridge, highlighting the scale of active travel infrastructure and investment for a joined-up network.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-18.png" class="img-fluid figure-img"></p>
+<figcaption>The Copenhagen skyline</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-19.png" class="img-fluid figure-img"></p>
+<figcaption>An example of clear separation between cycling and walking modes.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://robinlovelace.net/posts/2025-04-03-copenhagenize/paste-20.png" class="img-fluid figure-img"></p>
+<figcaption>Central Copenhagen, highlighting the high throughflow of pedestrians and cyclists enabled by space allocation policies, and the fact that there are bike parking spaces <em>everywhere</em> in the city.</figcaption>
+</figure>
+</div>
+<p>Overall it was an inspiring trip. There are many research ideas brewing, and I look forward to putting some of them into thought, words, code and action over the coming months. I would love to learn more about how Copenhagen and other cities with high percentages of trips made by active modes got there so feel free to get in touch on that. If you’re interested in any of the code underlying Anastassia’s thesis, check out the <a href="https://github.com/NERDSITU/">NERDSITU GitHub organisation</a>.</p>
+<p>More could be said on the research and city sides, I would love to create a photo map of my trip, but that can wait for another day.</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-aiello" class="csl-entry">
+Aiello, Luca Maria, Anastassia Vybornova, Sándor Juhász, Michael Szell, and Eszter Bokányi. n.d. <em>Urban Highways Are Barriers to Social Ties</em>. <a href="https://doi.org/10.48550/arXiv.2404.11596">https://doi.org/10.48550/arXiv.2404.11596</a>.
+</div>
+<div id="ref-büth2024" class="csl-entry">
+Büth, Carlson Moses, Anastassia Vybornova, and Michael Szell. 2024. <span>“Superblockify: A Python Package for Automated Generation, Visualization, and Analysis of Potential Superblocks in Cities.”</span> <em>Journal of Open Source Software</em> 9 (100): 6798. <a href="https://doi.org/10.21105/joss.06798">https://doi.org/10.21105/joss.06798</a>.
+</div>
+<div id="ref-davenport2012" class="csl-entry">
+Davenport, Thomas H., and D. J. Patil. 2012. <span>“Data Scientist: The Sexiest Job of the 21st Century.”</span> <em>Harvard Business Review</em>, October 1. <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century</a>.
+</div>
+<div id="ref-fleischmann2024" class="csl-entry">
+Fleischmann, Martin, and Anastassia Vybornova. 2024. <span>“A Shape-Based Heuristic for the Detection of Urban Block Artifacts in Street Networks.”</span> <em>Journal of Spatial Information Science</em>, no. 28 (June): 75–102. <a href="https://doi.org/10.5311/JOSIS.2024.28.31">https://doi.org/10.5311/JOSIS.2024.28.31</a>.
+</div>
+<div id="ref-vanteijlingen2022" class="csl-entry">
+Teijlingen, Edwin van, Bibha Simkhada, Pramod Regmi, Padam Simkhada, Vanora Hundley, and Krishna C. Poudel. 2022. <span>“Reflections on Variations in PhD Viva Regulations: <span>“</span>And the Options Are <span>…</span><span>”</span>.”</span> <em>Journal of Education and Research</em> 12 (2): 61–74. <a href="https://doi.org/10.51474/jer.v12i2.624">https://doi.org/10.51474/jer.v12i2.624</a>.
+</div>
+<div id="ref-vierø2024" class="csl-entry">
+Vierø, Ane Rahbek, Anastassia Vybornova, and Michael Szell. 2024. <span>“BikeDNA: A Tool for Bicycle Infrastructure Data and Network Assessment.”</span> <em>Environment and Planning B: Urban Analytics and City Science</em> 51 (2): 512–28. <a href="https://doi.org/10.1177/23998083231184471">https://doi.org/10.1177/23998083231184471</a>.
+</div>
+<div id="ref-vierø2025" class="csl-entry">
+Vierø, Ane Rahbek, Anastassia Vybornova, and Michael Szell. 2025. <span>“How Good Is Open Bicycle Network Data? A Countrywide Case Study of Denmark.”</span> <em>Geographical Analysis</em> 57 (1): 52–87. <a href="https://doi.org/10.1111/gean.12400">https://doi.org/10.1111/gean.12400</a>.
+</div>
+<div id="ref-vybornova2022" class="csl-entry">
+Vybornova, Anastassia, Tiago Cunha, Astrid Gühnemann, and Michael Szell. 2022. <span>“Automated Detection of Missing Links in Bicycle Networks.”</span> <em>Geographical Analysis</em> n/a (n/a). <a href="https://doi.org/10.1111/gean.12324">https://doi.org/10.1111/gean.12324</a>.
+</div>
+<div id="ref-vybornova" class="csl-entry">
+Vybornova, Anastassia, Ane Rahbek Vierø, Kirsten Krogh Hansen, and Michael Szell. n.d. <em>BikeNodePlanner: A Data-Driven Decision Support Tool for Bicycle Node Network Planning</em>. <a href="https://doi.org/10.48550/arXiv.2412.20270">https://doi.org/10.48550/arXiv.2412.20270</a>.
+</div>
+<div id="ref-vybornova2024" class="csl-entry">
+Vybornova, A., and T. Verma. 2024. <span>“You Don<span>’</span>t Have to Live Next to Me: Towards a Demobilization of Individualistic Bias in Computational Approaches to Urban Segregation.”</span> Unpublished manuscript. Copenhagen.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I was a reviewer of a <a href="https://bsky.app/profile/robinlovelace.bsky.social/post/3llxvrb652c2e">thesis</a> by <a href="https://christianwerner.at/">Christian Werner</a> on “Integrated geospatial network assessment for planning support in cycling mobility” but was not part of the defense committee. The first PhD thesis I examined was “Rethinking streets: a study of streetspace allocation metrics and street networks in London” by <a href="https://npalomin.github.io/">Nicolas Palominos</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <guid>https://robinlovelace.net/posts/2025-04-03-copenhagenize/</guid>
+  <pubDate>Thu, 03 Apr 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Looking back on 2024 and forward to 2025</title>
+  <link>https://robinlovelace.net/posts/2025-01-03-2024-retrospective/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In this post I look back on 2024 and forward to 2025.</p>
+<section id="work-in-2024" class="level2">
+<h2 class="anchored" data-anchor-id="work-in-2024">Work in 2024</h2>
+<p>I completed my two-year contract at <a href="https://www.activetravelengland.gov.uk/">Active Travel England</a> where I was Director of Data and Analysis. I got a <a href="https://robinlovelace.net/posts/2024-07-23-professorship/">promotion</a> to Professor, and from January 2025 am back to a single full-time job at the University of Leeds.</p>
+<section id="key-achievements-at-active-travel-england" class="level3">
+<h3 class="anchored" data-anchor-id="key-achievements-at-active-travel-england">Key achievements at Active Travel England:</h3>
+<ul>
+<li>Set up a grant funding agreement between ATE and the Alan Turing Institute</li>
+<li>Instigated the ATIP project (plan.activetravelengland.gov.uk)</li>
+<li>The SchoolRoutes project for identifying school routes for active travel investment</li>
+</ul>
+</section>
+</section>
+<section id="academic-highlights" class="level2">
+<h2 class="anchored" data-anchor-id="academic-highlights">Academic highlights</h2>
+<ul>
+<li>Two books with CRC Press (published in 2025):
+<ul>
+<li>Geocomputation with R (second edition)</li>
+<li>Geocomputation with Python</li>
+</ul></li>
+<li>Keynote at Mobile Tartu conference</li>
+<li>CRUSE project published (cruse.bike)</li>
+<li>Biclar web application for Lisbon</li>
+</ul>
+</section>
+<section id="open-source-contributions" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-contributions">Open source contributions</h2>
+<ul>
+<li><code>od2net</code> R interface for route network generation</li>
+<li><code>spanishoddata</code> R package for Spanish OD data</li>
+<li><code>parenx</code> Python package for network simplification</li>
+<li>Contributions to <code>anime</code> package for linestring matching</li>
+</ul>
+</section>
+<section id="community-projects" class="level2">
+<h2 class="anchored" data-anchor-id="community-projects">Community projects</h2>
+<ul>
+<li><strong>Bike Fix Sunday</strong>: Community bike repair project (150 members)</li>
+<li><strong>Chapeltown Cohousing</strong>: Got a shared electric cargo bike</li>
+<li><strong>Oaty Cortado run club</strong>: Weekly runs with mates</li>
+</ul>
+</section>
+<section id="personal-update" class="level2">
+<h2 class="anchored" data-anchor-id="personal-update">Personal update</h2>
+<p>I became a father again! Baby girl Rosa was born on November 12th, 2024. Big brother Kit is being excellent.</p>
+<p>Looking forward to 2025!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2025-01-03-2024-retrospective/</guid>
+  <pubDate>Fri, 03 Jan 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The Pathway to Professorship</title>
+  <link>https://robinlovelace.net/posts/2024-07-23-professorship/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I am delighted to announce that I have been appointed to a Professorship at the <a href="https://environment.leeds.ac.uk/transport/staff/953/dr-robin-lovelace">University of Leeds</a>. A small change in my job title (just removing the first word of my previous job title “Associate Professor of Transport Data Science”) means a lot for my career.</p>
+<p>This post is a reflection on the path that got me here, provides some insight into the promotion system in the UK, outlines some of the work that I’m most proud of, and provides a chance to say thank you to the many people who have inspired and supported me along the way.</p>
+<section id="my-career-path" class="level2">
+<h2 class="anchored" data-anchor-id="my-career-path">My career path</h2>
+<p>I didn’t set out to work in academia and certainly didn’t plan to become a professor. Although my career has been mostly in higher education, I think it is a little unusual in the way I’ve got there, with a big focus on impact and practical skills, rather than research outputs, administrative roles and memberships of committees and boards.</p>
+<ul>
+<li>1990-2002: Attended Weobley High School and Weobley Primary in Herefordshire</li>
+<li>2002-2004: A-levels at Hereford Sixth Form College (Maths, Geography, Psychology)</li>
+<li>2004-2008: Geography at University of Bristol, School of Geographical Sciences</li>
+<li>2008-2009: MSc Environmental Science and Management, University of York</li>
+<li>2009-2013: PhD at University of Sheffield (EPSRC-funded E-Futures Doctoral Training Centre)</li>
+<li>2013-2014: Research Fellow, NCRM funded TALISMAN project, University of Leeds</li>
+<li>2014-2016: Research Fellow in Data Analytics, University of Leeds</li>
+<li>2016-2019: University Academic Fellow in Transport and Big Data, ITS Leeds</li>
+<li>2019-2024: Associate Professor of Transport Data Science (part time since 2023)</li>
+<li>2023-2024: Part time role at Active Travel England (Civil Service)</li>
+<li>2024 onwards: Professor of Transport Data Science at University of Leeds</li>
+</ul>
+</section>
+<section id="the-promotion-process" class="level2">
+<h2 class="anchored" data-anchor-id="the-promotion-process">The promotion process</h2>
+<p>In the UK higher education system, promotions take place through a formal process based on a set of criteria. There are three pathways:</p>
+<ul>
+<li>Student Education</li>
+<li>Research &amp; Innovation<br>
+</li>
+<li>Academic Leadership</li>
+</ul>
+<p>As someone focused on research and innovation, I applied for the Research &amp; Innovation pathway.</p>
+</section>
+<section id="key-publications" class="level2">
+<h2 class="anchored" data-anchor-id="key-publications">Key publications</h2>
+<p>My portfolio included 10 key publications demonstrating impact:</p>
+<ol type="1">
+<li><strong>Propensity to Cycle Tool REF Impact Case Study</strong> (2023) - Four-star level of impact</li>
+<li><strong>The Propensity to Cycle Tool</strong> (2017) - JTLU, major impact on transport planning internationally</li>
+<li><strong>Geocomputation with R</strong> (2019) - CRC Press, widely adopted in university courses</li>
+<li><strong>From Big Noise to Big Data</strong> (2016) - Geographical Analysis</li>
+<li><strong>Stplanr</strong> (2018) - R Journal, downloaded 153k+ times</li>
+<li><strong>Open Source Tools for Geographic Analysis</strong> (2021) - Journal of Geographical Systems</li>
+<li><strong>Open Access Transport Models</strong> (2020) - Transport Policy</li>
+<li><strong>Methods to Prioritise Pop-up Active Transport Infrastructure</strong> (2020) - Transport Findings</li>
+<li><strong>ClockBoard</strong> (2022) - Journal of Spatial Information Science</li>
+<li><strong>London Cycle Hire Scheme</strong> (2020) - Transportation Research Part A</li>
+</ol>
+</section>
+<section id="portfolio-highlights" class="level2">
+<h2 class="anchored" data-anchor-id="portfolio-highlights">Portfolio highlights</h2>
+<ul>
+<li>60+ academic publications, 2,450+ citations, H-index of 27</li>
+<li>Led REF Impact Case Study on cycle network planning</li>
+<li>Developed tools used by 50k+ people per year</li>
+<li>International impact: PCT adapted for Ireland, Portugal, Scotland, New Zealand</li>
+</ul>
+</section>
+<section id="reflections" class="level2">
+<h2 class="anchored" data-anchor-id="reflections">Reflections</h2>
+<p>I was surprised at the extent to which it’s up to the promotion candidate to ask about or lobby for promotion. My message to people who are doing great work but not sure if they should apply for promotion is: go for it, you’re worth it!</p>
+<p>Thanks to all the colleagues, students, collaborators, and family who have supported me on this journey.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://robinlovelace.net/posts/2024-07-23-professorship/</guid>
+  <pubDate>Wed, 24 Jul 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Mobile Tartu 2024</title>
+  <link>https://robinlovelace.net/posts/2024-06-15-tartu2024/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I gave a keynote presentation at <a href="https://mobile.terra.tartu.ee/">Mobile Tartu 2024</a> on Future-Proof Transport Planning.</p>
+<section id="phd-school" class="level2">
+<h2 class="anchored" data-anchor-id="phd-school">PhD School</h2>
+<p>The conference started with a PhD School, which was a great opportunity to engage with early-career researchers.</p>
+</section>
+<section id="keynote-future-proof-transport-planning" class="level2">
+<h2 class="anchored" data-anchor-id="keynote-future-proof-transport-planning">Keynote: Future-Proof Transport Planning</h2>
+<p>My talk focused on the need for transport planning to adapt to changing circumstances, drawing on experience from the COVID-19 pandemic and the urgent need to decarbonise transport systems.</p>
+<p>Key themes included: - The importance of open source tools in transport planning - Data-driven approaches to active travel - Reproducible research methods - International collaboration in transport research</p>
+</section>
+<section id="conference-highlights" class="level2">
+<h2 class="anchored" data-anchor-id="conference-highlights">Conference highlights</h2>
+<p>The conference brought together researchers from around the world to discuss: - Accessibility metrics and methods - Mobility patterns and behaviour - Transport modelling and simulation - Active travel research</p>
+<p>Thanks to the organisers for a great event!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>event</category>
+  <guid>https://robinlovelace.net/posts/2024-06-15-tartu2024/</guid>
+  <pubDate>Sat, 15 Jun 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Geocomputation with R book</title>
+  <link>https://robinlovelace.net/</link>
+  <description>Open source book on geographic data analysis</description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/</guid>
+  <pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Reflections on 2023</title>
+  <link>https://robinlovelace.net/posts/2023-12-31-new-year-reflections/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Like last year’s reflections post, I’m going to keep this one short and use it as a chance to reflect on what I’ve been up to over the last 12 months, what I’ve been working on, research I’ve contributed to, and hopes for next year.</p>
+<section id="research-highlights" class="level2">
+<h2 class="anchored" data-anchor-id="research-highlights">Research highlights</h2>
+<p>This year saw continued work on: - <strong>Active travel safety</strong>: Contributing to the SaferActive project - <strong>Open transport tools</strong>: Continued development of the Propensity to Cycle Tool - <strong>Transport data science</strong>: Teaching and developing the MSc module at Leeds</p>
+</section>
+<section id="publications" class="level2">
+<h2 class="anchored" data-anchor-id="publications">Publications</h2>
+<p>Key publications in 2023 included work on: - Spatial analysis methods for transport - Open source software for geographic data - Active travel infrastructure planning</p>
+</section>
+<section id="looking-ahead-to-2024" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead-to-2024">Looking ahead to 2024</h2>
+<p>Next year I hope to: - Continue growing the Transport Data Science teaching - Publish more open source tools - Engage with international collaborators - Progress research on cycling infrastructure prioritisation</p>
+<p>Happy new year!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2023-12-31-new-year-reflections/</guid>
+  <pubDate>Sun, 31 Dec 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Propensity to Cycle Tool</title>
+  <link>https://robinlovelace.net/</link>
+  <description>Open source online tool for cycling potential modeling</description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/</guid>
+  <pubDate>Thu, 01 Jun 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Setting up Ubuntu for Geocomputation</title>
+  <link>https://robinlovelace.net/posts/2023-04-11-setting-up-ubuntu-geocomputation/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I recently got a new laptop and set it up with Ubuntu for spatial data analysis. Here’s my approach.</p>
+<section id="why-ubuntu" class="level2">
+<h2 class="anchored" data-anchor-id="why-ubuntu">Why Ubuntu?</h2>
+<ul>
+<li>Free and open source</li>
+<li>Excellent for R and Python development</li>
+<li>Great support for spatial packages</li>
+<li>Reliable and fast</li>
+</ul>
+</section>
+<section id="key-steps" class="level2">
+<h2 class="anchored" data-anchor-id="key-steps">Key steps</h2>
+<ol type="1">
+<li>Install Ubuntu (I use LTS versions)</li>
+<li>Install R and RStudio</li>
+<li>Add spatial packages: <code>sf</code>, <code>terra</code>, <code>igraph</code></li>
+<li>Set up Python with conda/mamba</li>
+<li>Install QGIS for visualization</li>
+</ol>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<p>See my <a href="https://github.com/Robinlovelace/install-geocomp-ubuntu">install-geocomp-ubuntu</a> repo for detailed setup scripts.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2023-04-11-setting-up-ubuntu-geocomputation/</guid>
+  <pubDate>Tue, 11 Apr 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>SaferActive Project</title>
+  <link>https://robinlovelace.net/</link>
+  <description>Improving safety for active travel through data-driven approaches</description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/</guid>
+  <pubDate>Sat, 01 Apr 2023 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Reflections on 2022</title>
+  <link>https://robinlovelace.net/posts/2022-12-30-2022-reflections/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>A brief reflection on 2022, a year of growth and transition.</p>
+<section id="personal-highlights" class="level2">
+<h2 class="anchored" data-anchor-id="personal-highlights">Personal highlights</h2>
+<ul>
+<li>Became a father (mentioned in tags!)</li>
+<li>Continued work at University of Leeds</li>
+<li>Started part-time role in Civil Service</li>
+</ul>
+</section>
+<section id="work-highlights" class="level2">
+<h2 class="anchored" data-anchor-id="work-highlights">Work highlights</h2>
+<ul>
+<li>Progress on the Propensity to Cycle Tool</li>
+<li>Transport Data Science module going well</li>
+<li>Open source software development</li>
+</ul>
+</section>
+<section id="looking-forward" class="level2">
+<h2 class="anchored" data-anchor-id="looking-forward">Looking forward</h2>
+<p>Hope for more balance between work and personal life, continuing to grow as a researcher and teacher.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2022-12-30-2022-reflections/</guid>
+  <pubDate>Fri, 30 Dec 2022 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Setting up Mastodon: an appropriate social media platform for the 2020s</title>
+  <link>https://robinlovelace.net/posts/2022-11-05-mastodon/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I’ve moved from Twitter to <a href="https://fosstodon.org/@robinlovelace">Mastodon</a>. Here’s why and how.</p>
+<section id="why-mastodon" class="level2">
+<h2 class="anchored" data-anchor-id="why-mastodon">Why Mastodon?</h2>
+<p>Twitter has become increasingly toxic and unreliable. Mastodon is: - <strong>Open source</strong>: No single company controls it - <strong>Decentralized</strong>: No algorithmic manipulation - <strong>Community-run</strong>: No advertising or tracking - <strong>Better for the planet</strong>: Lower environmental impact</p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<ol type="1">
+<li>Choose an instance (I use fosstodon.org for tech/science)</li>
+<li>Create an account</li>
+<li>Follow people and join conversations</li>
+<li>Use the hashtag #OpenScience to find researchers</li>
+</ol>
+</section>
+<section id="my-experience" class="level2">
+<h2 class="anchored" data-anchor-id="my-experience">My experience</h2>
+<p>I’ve found the Mastodon community to be more supportive and constructive than other platforms. It’s a breath of fresh air to be in an environment focused on sharing knowledge rather than engagement metrics.</p>
+<p>The transition wasn’t instantaneous but has been rewarding. I now have connections across academia, open source, and the cycling community that wouldn’t have happened on traditional social media.</p>
+<p>Come find me at: <a href="https://fosstodon.org/@robinlovelace">Robin Lovelace on Fosstodon</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2022-11-05-mastodon/</guid>
+  <pubDate>Sat, 05 Nov 2022 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Reflections on 2021</title>
+  <link>https://robinlovelace.net/posts/2022-01-01-2021-reflections/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>It’s been another crazy year for many people with lifestyles still disrupted by COVID. But it’s been an amazing year for me and my family.</p>
+<section id="highlights" class="level2">
+<h2 class="anchored" data-anchor-id="highlights">Highlights</h2>
+<ul>
+<li><strong>First solo-authored paper</strong>: Published “Open source tools for geographic analysis in transport planning” in the Journal of Geographical Systems</li>
+<li><strong>10DS Fellowship</strong>: Awarded an 18 month fellowship to work with the No.&nbsp;10 Data Science team</li>
+<li><strong>Became a dad</strong>: The most rewarding event of my life!</li>
+</ul>
+</section>
+<section id="academic-output" class="level2">
+<h2 class="anchored" data-anchor-id="academic-output">Academic output</h2>
+<p>5 peer-reviewed papers in 2021, including solo-authored work on open source transport planning tools.</p>
+</section>
+<section id="looking-ahead-to-2022" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead-to-2022">Looking ahead to 2022</h2>
+<p>More policy-relevant research, continuing the 10DS fellowship work, and enjoying fatherhood!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2022-01-01-2021-reflections/</guid>
+  <pubDate>Sat, 01 Jan 2022 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Open access events on data science in transport</title>
+  <link>https://robinlovelace.net/posts/2021-12-03-open-access-events/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>A couple of events where I and colleagues presented on building tools for evidence-based decision making:</p>
+<ol type="1">
+<li><strong>Evidence to Support Active Travel in the Planning System</strong> - LSSI and Department for Transport, June 2021</li>
+<li><strong>Propensity to Cycle Tool Advanced Training Workshop</strong> - December 2021</li>
+</ol>
+<p>These events covered topics in data science skills for transport planning and using tools like the PCT for evidence-based planning.</p>
+
+
+
+ ]]></description>
+  <category>event</category>
+  <guid>https://robinlovelace.net/posts/2021-12-03-open-access-events/</guid>
+  <pubDate>Fri, 03 Dec 2021 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Making a reproducible website with blogdown in 2021</title>
+  <link>https://robinlovelace.net/posts/2021-01-03-making-a-reproducible-website-with-blogdown-in-2021/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>For people interested in how I set this site up, see the changes tracked on GitHub to transition to the new site: https://github.com/rbind/robinlovelace/pull/5</p>
+<p>This site was built using blogdown and Hugo. The key benefits are: - Fully reproducible - Version controlled - Free hosting on Netlify/GitHub Pages - R Markdown support</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2021-01-03-making-a-reproducible-website-with-blogdown-in-2021/</guid>
+  <pubDate>Sun, 03 Jan 2021 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Evidence to prioritise pop-up cycleways</title>
+  <link>https://robinlovelace.net/posts/2020-05-26-evidence-to-prioritise-pop-up-cycleways/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I gave a talk at the ‘Ideas with Beers’ seminar series on evidence to prioritise pop-up cycleways.</p>
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>During COVID-19, there was urgent need for evidence to support rapid deployment of cycling infrastructure. The talk covered:</p>
+<ul>
+<li>Methods for identifying priority routes</li>
+<li>Using open data for quick analysis</li>
+<li>Case studies from the UK</li>
+</ul>
+</section>
+<section id="key-message" class="level2">
+<h2 class="anchored" data-anchor-id="key-message">Key message</h2>
+<p>Pop-up cycleways can be implemented quickly and cheaply using evidence-based approaches. The Propensity to Cycle Tool methodology was adapted to support this work.</p>
+<p>This led to the development of tools used by local authorities across the UK.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2020-05-26-evidence-to-prioritise-pop-up-cycleways/</guid>
+  <pubDate>Tue, 26 May 2020 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Six great things about UseR! 2019</title>
+  <link>https://robinlovelace.net/posts/2019-07-13-great-things-user2019/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>UseR! is the most popular annual meeting for R enthusiasts. UseR! 2019 was held in Toulouse, France.</p>
+<section id="key-highlights" class="level2">
+<h2 class="anchored" data-anchor-id="key-highlights">Key highlights</h2>
+<ol type="1">
+<li><strong>Community</strong>: Huge, friendly community of R users</li>
+<li><strong>Tutorials</strong>: Excellent workshops on topics from Shiny to tidyverse</li>
+<li><strong>Keynotes</strong>: Inspiring talks from RStudio and academia</li>
+<li><strong>Networking</strong>: Met people from diverse backgrounds</li>
+<li><strong>Packages</strong>: Saw the latest developments in R packages</li>
+<li><strong>Location</strong>: Toulouse was a great host city</li>
+</ol>
+<p>It was my first UseR! conference and definitely won’t be the last.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>event</category>
+  <guid>https://robinlovelace.net/posts/2019-07-13-great-things-user2019/</guid>
+  <pubDate>Sat, 13 Jul 2019 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>stplanr paper published</title>
+  <link>https://robinlovelace.net/posts/2019-02-25-stplanr-paper-published/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I am very happy to announce that the paper <em>stplanr: A package for transport planning</em> has been published in The R Journal!</p>
+<p>This is the result of around 3 years of work with co-author Richard Ellison. The stplanr package was first released on CRAN in November 2015 and has been downloaded over 150,000 times.</p>
+<p>The paper describes the key functions for transport planning including: - Origin-destination analysis - Route finding - Network analysis - Spatial aggregation</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2019-02-25-stplanr-paper-published/</guid>
+  <pubDate>Mon, 25 Feb 2019 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Aggregating lines, Part I</title>
+  <link>https://robinlovelace.net/posts/2018-10-27-aggregating-lines/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Part I of a series on aggregating lines in R for transport planning.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>When working with route networks, you often need to aggregate multiple lines into single segments. This is useful for: - Calculating summary statistics - Visualizing flows - Simplifying networks</p>
+<p>The stplanr package provides functions for this, particularly <code>overline()</code> which aggregates lines by geography.</p>
+<p>See also Part II for more advanced techniques.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2018-10-27-aggregating-lines/</guid>
+  <pubDate>Sat, 27 Oct 2018 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Switching to blogdown</title>
+  <link>https://robinlovelace.net/posts/2017-04-30-switching-to-blogdown/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I’ve finally got a new blog post, to test that my new set-up is working, using the wonderful <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> package.</p>
+<p>This allows R code to be embedded directly in blog posts, making it perfect for data science and research blogging.</p>
+<p>The transition from oldWordPress to blogdown was smooth and I haven’t looked back since!</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://robinlovelace.net/posts/2017-04-30-switching-to-blogdown/</guid>
+  <pubDate>Sun, 30 Apr 2017 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
