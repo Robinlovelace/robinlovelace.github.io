@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Robin Lovelace</title>
+<link>https://robinlovelace.net/events/</link>
+<atom:link href="https://robinlovelace.net/events/index.xml" rel="self" type="application/rss+xml"/>
+<description>Personal website of Robin Lovelace</description>
+<image>
+<url>https://robinlovelace.net/files/images/avatar.jpg</url>
+<title>Robin Lovelace</title>
+<link>https://robinlovelace.net/events/</link>
+</image>
+<generator>quarto-1.9.37</generator>
+<lastBuildDate>Fri, 26 Jun 2026 08:00:00 GMT</lastBuildDate>
+<item>
+  <title>AUM2026: Applied Urban Modelling Symposium and Pre-conference Seminar</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/aum2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I’ll be presenting on <strong>Modelling multi-modal traffic interactions, casualties, and safety risk for people walking and cycling</strong>.</p>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>This talk presents data-driven approaches for modelling multi-modal traffic interactions, casualties, and safety risk for people walking and cycling, with the aim of informing government guidance on critical safety issues for walking, wheeling, and cycling. The presentation will cover: data engineering pipelines designed to ingest large volumes of pedestrian and cycle count data; the integration of casualty and traffic data to characterise risk; and open-source tools and reproducible methods used to build models capable of informing evidence-based policy and design guidance. The work draws on and extends existing transport modelling frameworks and speaks to the broader challenge of making active travel the natural choice for short trips in UK cities and towns.</p>
+<!-- ## Event Details
+
+### Pre-conference Seminar: Modelling Active Mobility
+- **Dates:** 26-27 June 2026
+- **Venue:** Bateman Auditorium, Gonville & Caius College (Old Courts)
+- **Format:** Day 1 presentations by invitation; Day 2 group discussion
+- **Sponsor:** VREF (Volvo Research and Educational Foundations)
+
+### Main AUM2026 Symposium
+- **Dates:** 29 June - 1 July 2026
+- **Venue:** Cavonius Centre, Gonville & Caius College (Harvey Court)
+- **Organisers:** Department of Land Economy and Martin Centre, University of Cambridge
+
+### Registration
+Registration covers symposium organisation, refreshments, and buffet lunches. Accommodation not included (limited college guestrooms available).
+
+### Contact
+[aum@landecon.cam.ac.uk](mailto:aum@landecon.cam.ac.uk) -->
+
+
+</section>
+
+ ]]></description>
+  <category>upcoming</category>
+  <guid>https://robinlovelace.net/events/aum2026/</guid>
+  <pubDate>Fri, 26 Jun 2026 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>10th Mobile Tartu Conference</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/mobile-tartu-2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>We welcome you to join us at the 10th biennial Mobile Tartu Conference and PhD School on June 7/8‒10, 2026, to celebrate two decades of human mobility studies based on mobile phone data!</p>
+<p>The Mobile Tartu Conference focuses on human mobility studies for resilient, just, and sustainable societies, using primarily digital traces from mobile big data. At the Jubilee Conference, we reflect on the evolution of mobility studies over the past two decades and how this has influenced the need to consider mobility data justice in research and governance. Our confirmed keynote speakers include Prof.&nbsp;Kay W. Axhausen (ETH Zurich, Switzerland) and Prof.&nbsp;Mimi Sheller (Worcester Polytechnic Institute, USA).</p>
+<p>The special themes of the jubilee Mobile Tartu 2026 include:</p>
+<ul>
+<li>Activity space studies informing just and sustainable societies</li>
+<li>Multilocal living and cross-border interactions in digital transition</li>
+<li>Mobility data justice in research and governance</li>
+</ul>
+<p>The conference also features panel discussions, paper sessions (including NECTAR and Cycle4Climate sessions), and a rich social programme with vibrant discussions on the conceptual, methodological, and empirical dimensions of measuring human mobility using mobile big data.</p>
+<p>In collaboration with the EIT Urban Mobility Doctoral Training Network and the Estonian Doctoral School, the conference also includes a PhD School, comprising lectures and hands-on workshops on mobile big data applications for understanding human mobility. The workshops are led by Andres Sevtsuk (MIT), Robin Lovelace (University of Leeds), Francisco Rowe (University of Liverpool), and Anto Aasa (University of Tartu).</p>
+<p>Abstract submission deadline: 16 January 2026</p>
+
+
+
+ ]]></description>
+  <category>upcoming</category>
+  <guid>https://robinlovelace.net/events/mobile-tartu-2026/</guid>
+  <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Data-Driven Transport Planning Hackathon</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/hackathon-ni/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Welcome to the <strong>Data-Driven Transport Planning Hackathon</strong>!</p>
+<p><strong>Date:</strong> Monday 18th May 2026<br>
+<strong>Time:</strong> 14:00 – 17:00<br>
+<strong>Location:</strong> David Keir Building, Room 0G.533, University of Leeds</p>
+<p>Hosted by Robin Lovelace (University of Leeds, PCTNI team), this afternoon challenge invites you to create data‑driven tools, visualisations, or analyses for transport planning. Use any tools or language; work individually or in teams.</p>
+<p>🔗 <strong>Hackathon resources:</strong> https://pctni.github.io/hack/<br>
+📝 <strong>Sign‑up:</strong> https://docs.google.com/forms/d/1CfpigdYH3gLYhoaKraBhDYpmKS1PKefxarIFjp9loME/viewform?edit_requested=true</p>
+<p>Refreshments provided. Bring yourself and your laptop!</p>
+
+
+
+ ]]></description>
+  <category>upcoming</category>
+  <guid>https://robinlovelace.net/events/hackathon-ni/</guid>
+  <pubDate>Mon, 18 May 2026 13:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Travel Planning Co-ordinator Event Leeds</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/travel-planning-coordinator-leeds-2026/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I’ll be attending this free networking event for travel plan coordinators in Leeds on 6 May 2026.</p>
+<p>The event is organized by the Leeds City Council Travel Planning team and brings together people working on travel plans across the city. It’s a great opportunity to connect with others in the field and learn about local sustainable transport initiatives including:</p>
+<ul>
+<li>Betterpoints</li>
+<li>Beryl Bikes</li>
+<li>Northern Rail</li>
+<li>Residential MCard</li>
+<li>Enterprise Car Club</li>
+<li>Public transport ticketing</li>
+</ul>
+<p>The event runs from 10am to 12pm at Merrion House (110 Merrion Way, Leeds LS1 1UR).</p>
+<p>Registration is free via <a href="https://www.eventbrite.co.uk/e/travel-planning-co-ordinator-event-leeds-tickets-1983857569394">Eventbrite</a>.</p>
+
+
+
+ ]]></description>
+  <category>upcoming</category>
+  <guid>https://robinlovelace.net/events/travel-planning-coordinator-leeds-2026/</guid>
+  <pubDate>Wed, 06 May 2026 09:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Transport Committee Academic Engagement Event</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/2026-transport-committee-engagement/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>The Transport Committee is holding an academic engagement event to strengthen connections with the research community and discuss pertinent transport policy issues.</p>
+<p>The event aims to: - Give members of the Committee an opportunity to hear about the latest academic research. - Grow the Committee’s understanding of and connections to the research community. - Strengthen researcher understanding of the work of the Committee and how to get involved.</p>
+<p>I have been invited based on my research expertise in: - Research methods and data science - Local and regional transport planning - Travel behaviour and behaviour change - Decarbonisation</p>
+<p>I plan to discuss my ongoing work with Active Travel England, particularly the update to evidence on “critical issues” for walking, wheeling, and cycling. This involves a move towards identifying and remediating dangerous infrastructure rather than just promoting best practice. I am also developing methods to estimate baseline traffic levels for all modes at the road segment level, a project that is currently focused on the West Midlands but has national scalability.</p>
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/2026-transport-committee-engagement/</guid>
+  <pubDate>Wed, 11 Feb 2026 09:30:00 GMT</pubDate>
+</item>
+<item>
+  <title>Modelling active travel with efficient, future-proof tools</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/2025-eth-zurich-colloquium/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="modelling-active-travel-with-efficient-future-proof-tools" class="level2">
+<h2 class="anchored" data-anchor-id="modelling-active-travel-with-efficient-future-proof-tools">Modelling active travel with efficient, future-proof tools</h2>
+<p><strong>Event:</strong> ETH Zürich Colloquium</p>
+<p><strong>Location:</strong> ETH Zürich, Campus Hoenggerberg</p>
+<p><strong>Date:</strong> 2025-11-18 10:05:00+01:00</p>
+<p>A talk at the colloquium following Eva Heinen’s inaugural lecture at ETH Zürich.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/2025-eth-zurich-colloquium/</guid>
+  <pubDate>Tue, 18 Nov 2025 09:05:00 GMT</pubDate>
+</item>
+<item>
+  <title>Building Capacity for Data-Driven Urban Mobility</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/itf-eurostat-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This keynote outlines practical steps to enable data-driven decision-making in transport using open and reproducible workflows, with examples from communities of practice and national-level data integration.</p>
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/itf-eurostat-2025/</guid>
+  <pubDate>Tue, 04 Nov 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>New tools for internationally-scalable future-proof transport planning</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/finnish-embassy-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This talk highlights scalable, open transport planning tools and opportunities to align with GREENTRAVEL, including reproducible research practices and international portability.</p>
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/finnish-embassy-2025/</guid>
+  <pubDate>Wed, 22 Oct 2025 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Data Science for Transport Planning: 2 day course</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/data-science-transport-planning-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<!-- https://store.leeds.ac.uk/product-catalogue/environment/transport-studies/short-courses/0925dstp2-data-science-for-transport-planning -->
+<section id="note-tickets-are-now-on-sale-get-yours-at-store.leeds.ac.uk." class="level2">
+<h2 class="anchored" data-anchor-id="note-tickets-are-now-on-sale-get-yours-at-store.leeds.ac.uk.">Note: tickets are now on sale! Get yours at <a href="https://store.leeds.ac.uk/product-catalogue/environment/transport-studies/short-courses/0925dstp2-data-science-for-transport-planning">store.leeds.ac.uk</a>.</h2>
+<p>Based on demand, I’m running a 2-day course with colleagues teaching modern data science skills for transport planning, focussed on transport planning practitioners and transport planning researchers looking to develop their skills for real-world applications.</p>
+<p>Any questions welcome, looking forward to seeing you at the course!</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/data-science-transport-planning-2025/</guid>
+  <pubDate>Thu, 18 Sep 2025 09:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Future-Proof Transport Planning: Cities Workshop</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/2025-cities-workshop/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="keynote-talk" class="level2">
+<h2 class="anchored" data-anchor-id="keynote-talk">Keynote Talk</h2>
+<p>This is the keynote talk for the Sustainable Transport and Planning for Cleaner and Healthier Cities Workshop.</p>
+<p><a href="https://www.robinlovelace.net">Robin Lovelace</a> is Professor of Transport Data Science at the Leeds Institute for Transport Studies and Head of Data Science at Active Travel England.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/2025-cities-workshop/</guid>
+  <pubDate>Wed, 03 Sep 2025 13:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Integrating diverse data sources to support future-proof transport modelling</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/utsg2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I presented an extended abstract at the 57th Universities Transport Studies Group (UTSG) Annual Conference, held at University College Dublin on 25th June 2025. The abstract is titled “Integrating diverse data sources to support future-proof transport modelling” and discusses the limitations of traditional transport models that rely on limited input datasets, leading to biases and blind-spots in model outputs. The presentation highlights a case study of the Network Planning Tool for Scotland (NPT), which integrates multiple datasets to support more evidence-based and data-driven transport strategies.</p>
+<p>The extended abstract can be found <a href="https://github.com/nptscot/osmactive/releases/download/v0.1/307.pdf">here</a>.</p>
+<!-- Social media posts:
+
+Just signed-up to the #UTSG2025 conference in Dublin, 25th-27th June. Looking forward to presenting our work on integrating multiple network datasets for the Network Planning Tool, funded by Transport Scotland and developed in collaboration with Sustrans. This is the first time that cycling Level of Service (LoS) has been calculated for every road and presented alongside estimates of cycling potential nationwide anywhere, to the best of my knowledge. The tool is open source and will be publicly available soon. See you there! #NPT #geocompx
+
+## Short version for x:
+
+Just signed-up to the #UTSG2025 conference in Dublin, 25th-27th June. Looking forward to presenting our work on transport data integration to calculate Level of Service on every road in Scotland. Thanks to colleagues, Transport Scotland + Sustrans. See you there! #NPT #geocompx
+
+ -->
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/utsg2025/</guid>
+  <pubDate>Wed, 25 Jun 2025 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>NPT Nominated for Most Innovative Project at Scottish Transport Awards 2025</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/scottish-transport-awards-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I am thrilled to announce that the Network Planning Tool (NPT) project, which I lead, has been nominated for the ‘Most Innovative Project of the Year’ award at the 22nd Annual Scottish Transport Awards!</p>
+<p>I will be attending the awards ceremony on 19th June 2025 at the Glasgow Marriott Hotel. It’s an honour for the NPT to be recognised among other significant achievements in Scottish transport.</p>
+<p>More details about the awards can be found on the <a href="https://www.transporttimes.co.uk/awards.php/Scottish-Transport-Awards-3/">official event website</a>.</p>
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/scottish-transport-awards-2025/</guid>
+  <pubDate>Thu, 19 Jun 2025 17:15:00 GMT</pubDate>
+</item>
+<item>
+  <title>New ways of working for a new generation of transport modellers</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/mw2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I am looking forward to leading the closing plenary session at Modelling World 2025, which will be held from 17-18 June 2025 at the Manchester Conference Centre.</p>
+<p>I’m chairing the final session of the conference, 15:45-17:00 on Wednesday 18th titled “New ways of working for a new generation of transport modellers”. In it we will hear from the following panelists about new tools and ways of working across generations:</p>
+<ul>
+<li>Robin North, CEO and Lead Technologist, Immense Simulations</li>
+<li>Raquel Sánchez, R&amp;D Data Scientist, Nommon Solutions and Technologies</li>
+<li>James Hulse, Analyst, Transport for the North</li>
+<li>Francesca Bryden, Head of Data Engineering, Department for Transport</li>
+<li>Martin Campbell, Associate Director - Digital, SYSTRA</li>
+<li>Ian Williams, Independent Transport and Land Use Consultant</li>
+</ul>
+<p>We will explore the evolving practices, tools, skills, and mindsets shaping the future of transport modelling. More information about the conference can be found on the <a href="https://www.modelling-world.com/conference-2025">official event website</a>.</p>
+<!-- Social media:
+
+Short version for Twitter:
+
+I will be leading a plenary session at Modelling World 2025 in Manchester, discussing the evolving practices, tools, skills, and mindsets for the next generation of transport modellers. More info: https://www.modelling-world.com/conference-2025 #ModellingWorld2025 #TransportModelling
+
+Longer version for LinkedIn:
+
+I am excited to announce that I will be leading a plenary session at Modelling World 2025 in Manchester, where we will explore the evolving practices, tools, skills, and mindsets for the next generation of transport modellers. This session will address how the current generation of modellers needs to adapt, the role of AI in forecasting, the sufficiency of visualisation and data science, methods for evaluating model realism, and the importance of bold scenarios for substantial change. Join us for this insightful discussion! More info: https://www.modelling-world.com/conference-2025 #ModellingWorld2025 #TransportModelling
+
+-->
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/mw2025/</guid>
+  <pubDate>Tue, 17 Jun 2025 13:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Seminar in St Andrews: Future-Proof Transport Planning</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/st-andrews-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This is part of the <a href="https://begin.wp.st-andrews.ac.uk/category/seminars/">St Andrews Bell Edwards Geographic Data Institute (BEGIN) Seminar Series</a>, held in the Irvine Building, University of St Andrews, North Street, St Andrews, KY16 9AL, Scotland, and hosted by <a href="https://www.st-andrews.ac.uk/geography-sustainable-development/people/mfbp1/">Fernando Benitez</a>.</p>
+</section>
+<section id="blurb" class="level2">
+<h2 class="anchored" data-anchor-id="blurb">Blurb</h2>
+<p><a href="https://www.robinlovelace.net">Robin Lovelace</a> is Professor of Transport Data Science at the Leeds Institute for Transport Studies (<a href="https://environment.leeds.ac.uk/transport/staff/953/dr-robin-lovelace">ITS</a>). Robin specializes in data science and geocomputation, with a focus on developing geographic methods applied to modeling transport systems, active travel, and decarbonisation. Robin has experience not only researching but deploying transport models in inform sustainable policies and more effective use of transport investment, including as Lead Developer of the Propensity to Cycle Tool (see www.pct.bike), the basis of strategic cycle network plans nationwide. Robin has led numerous data science projects for organizations ranging from the Department for Transport and Transport Infrastructure Ireland to the World Bank.</p>
+<!-- ![](images/paste-3.png) -->
+<p>Illustration of the Network Planning Tool (NPT) results for St Andrews</p>
+<p><img src="https://robinlovelace.net/events/st-andrews-2025/images/paste-2.png" class="img-fluid"></p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/st-andrews-2025/</guid>
+  <pubDate>Tue, 20 May 2025 13:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Inaugural Lecture: Data Science for Future-Proof Transport Planning</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/inaugural-lecture-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<!-- ![demo](image.png) -->
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/inaugural-lecture-2025/</guid>
+  <pubDate>Thu, 08 May 2025 15:30:00 GMT</pubDate>
+</item>
+<item>
+  <title>Data Driven 2025</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/data-driven-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Presentation based on work by me and colleagues on the Network Planning Tool for Scotland (NPT) project, funded by Transport Scotland and delivered in collaboration with Sustrans Scotland.</p>
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/data-driven-2025/</guid>
+  <pubDate>Thu, 01 May 2025 08:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Mapping, classifying, and integrating diverse street network datasets</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/gisruk-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>See a video from the talk below:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6mimz_gN-V8?si=L7Beog5C39LWCfUl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/gisruk-2025/</guid>
+  <pubDate>Thu, 24 Apr 2025 13:30:00 GMT</pubDate>
+</item>
+<item>
+  <title>Transport AI 2025</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/transportai-2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I’m looking forward to learning about the latest developments in transport AI at this event.</p>
+<p>For more information see the <a href="https://www.transportai.uk/">event website</a>.</p>
+
+
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/transportai-2025/</guid>
+  <pubDate>Wed, 05 Feb 2025 09:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Tools for Future-Proof Transport Planning: Open Source, Open Access, Reproducible and Collaborative</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/st-andrews-2025/glasgow2024/</link>
+  <description><![CDATA[ 
+
+
+
+
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+In a hybrid UBDC webinar at 3pm on Thursday 10 October, <a href="https://twitter.com/robinlovelace?ref_src=twsrc%5Etfw"><span class="citation" data-cites="robinlovelace">(</span></a><strong>robinlovelace?</strong>) from the Leeds Institute for Transport Studies will make the case that <a href="https://twitter.com/hashtag/ReproducibleResearch?src=hash&amp;ref_src=twsrc%5Etfw">#ReproducibleResearch</a> and <a href="https://twitter.com/hashtag/OpenTools?src=hash&amp;ref_src=twsrc%5Etfw">#OpenTools</a> are essential for effective 21st century <a href="https://twitter.com/hashtag/TransportPlanning?src=hash&amp;ref_src=twsrc%5Etfw">#TransportPlanning</a>. Full details: <a href="https://t.co/6E6kOfziXl">https://t.co/6E6kOfziXl</a>
+</p>
+— UBDC (<span class="citation" data-cites="UrbanBigData">(<strong>UrbanBigData?</strong>)</span>) <a href="https://twitter.com/UrbanBigData/status/1843564536567107629?ref_src=twsrc%5Etfw">October 8, 2024</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<section id="blurb" class="level2">
+<h2 class="anchored" data-anchor-id="blurb">Blurb</h2>
+<p><a href="https://www.robinlovelace.net">Robin Lovelace</a> is Professor of Transport Data Science at the Leeds Institute for Transport Studies (<a href="https://environment.leeds.ac.uk/transport/staff/953/dr-robin-lovelace">ITS</a>) and Head of Data Science at the UK government agency <a href="https://activetravelengland.gov.uk/">Active Travel England</a>. Robin specializes in data science and geocomputation, with a focus on developing geographic methods applied to modeling transport systems, active travel, and decarbonisation. Robin has experience not only researching but deploying transport models to inform sustainable policies and more effective use of transport investment, including as Lead Developer of the Propensity to Cycle Tool (see www.pct.bike), the basis of strategic cycle network plans nationwide. Robin has led numerous data science projects for organizations ranging from the Department for Transport and Transport Infrastructure Ireland to the World Bank.</p>
+</section>
+<section id="pre-event-write-up" class="level2">
+<h2 class="anchored" data-anchor-id="pre-event-write-up">Pre-event write up</h2>
+<p>I’m on my way up North, looking forward to it!</p>
+<p>See below for info on the talk and how to attend/get involved.</p>
+<p>Photo from the way up North:</p>
+<p><img src="https://robinlovelace.net/events/st-andrews-2025/glasgow2024/images/paste-1.png" class="img-fluid"></p>
+<p>See <a href="eventbrite.html">eventbrite</a> for more details.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/st-andrews-2025/glasgow2024/</guid>
+  <pubDate>Thu, 10 Oct 2024 14:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Tools for Future-Proof Transport Planning: Open Source, Open Access, Reproducible and Collaborative</title>
+  <dc:creator>Robin Lovelace</dc:creator>
+  <link>https://robinlovelace.net/events/glasgow2024/</link>
+  <description><![CDATA[ 
+
+
+
+
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+In a hybrid UBDC webinar at 3pm on Thursday 10 October, <a href="https://twitter.com/robinlovelace?ref_src=twsrc%5Etfw"><span class="citation" data-cites="robinlovelace">(</span></a><strong>robinlovelace?</strong>) from the Leeds Institute for Transport Studies will make the case that <a href="https://twitter.com/hashtag/ReproducibleResearch?src=hash&amp;ref_src=twsrc%5Etfw">#ReproducibleResearch</a> and <a href="https://twitter.com/hashtag/OpenTools?src=hash&amp;ref_src=twsrc%5Etfw">#OpenTools</a> are essential for effective 21st century <a href="https://twitter.com/hashtag/TransportPlanning?src=hash&amp;ref_src=twsrc%5Etfw">#TransportPlanning</a>. Full details: <a href="https://t.co/6E6kOfziXl">https://t.co/6E6kOfziXl</a>
+</p>
+— UBDC (<span class="citation" data-cites="UrbanBigData">(<strong>UrbanBigData?</strong>)</span>) <a href="https://twitter.com/UrbanBigData/status/1843564536567107629?ref_src=twsrc%5Etfw">October 8, 2024</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<section id="blurb" class="level2">
+<h2 class="anchored" data-anchor-id="blurb">Blurb</h2>
+<p><a href="https://www.robinlovelace.net">Robin Lovelace</a> is Professor of Transport Data Science at the Leeds Institute for Transport Studies (<a href="https://environment.leeds.ac.uk/transport/staff/953/dr-robin-lovelace">ITS</a>) and Head of Data Science at the UK government agency <a href="https://activetravelengland.gov.uk/">Active Travel England</a>. Robin specializes in data science and geocomputation, with a focus on developing geographic methods applied to modeling transport systems, active travel, and decarbonisation. Robin has experience not only researching but deploying transport models in inform sustainable policies and more effective use of transport investment, including as Lead Developer of the Propensity to Cycle Tool (see www.pct.bike), the basis of strategic cycle network plans nationwide. Robin has led numerous data science projects for organizations ranging from the Department for Transport and Transport Infrastructure Ireland to the World Bank.</p>
+</section>
+<section id="pre-event-write-up" class="level2">
+<h2 class="anchored" data-anchor-id="pre-event-write-up">Pre-event write up</h2>
+<p>I’m on my way up North, looking forward to it!</p>
+<p>See below for info on the talk and how to attend/get involved.</p>
+<p>Photo from the way up North:</p>
+<p><img src="https://robinlovelace.net/events/glasgow2024/images/paste-1.png" class="img-fluid"></p>
+<p>See <a href="eventbrite.html">eventbrite</a> for more details.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://robinlovelace.net/events/glasgow2024/</guid>
+  <pubDate>Thu, 10 Oct 2024 14:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
