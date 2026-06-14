@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robin Lovelace">
+<meta name="dcterms.date" content="2022-11-05">
+<meta name="description" content="Personal website of Robin Lovelace">
+
+<title>Setting-up Mastodon: an appropriate social media platform for the 2020s 🐘 – Robin Lovelace</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6a50bd621f08fdc5c26e43d254df0a90.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-9bfc61b20ce54e18ae6b25bf56d136e1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6a50bd621f08fdc5c26e43d254df0a90.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-28d58fd89c1f289a76997b39c0038a8d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-dae8fa2f265d7f105c99c7652dda10f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-28d58fd89c1f289a76997b39c0038a8d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<!-- 
+Load Academicons v1: https://jpswalsh.github.io/academicons/
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+<!---
+The following code are needed to show dimension citation and altmetrics.
+https://api.altmetric.com/embeds.html
+https://badge.dimensions.ai/
+--->
+
+<script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+<script async="" src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="//cdn.plu.mx/widget-popup.js"></script>
+
+
+<meta property="og:title" content="Setting-up Mastodon: an appropriate social media platform for the 2020s 🐘 – Robin Lovelace">
+<meta property="og:description" content="Personal website of Robin Lovelace">
+<meta property="og:image" content="https://robinlovelace.net/posts/2022-11-05-mastodon/files/images/avatar.jpg">
+<meta property="og:site_name" content="Robin Lovelace">
+<meta name="twitter:title" content="Setting-up Mastodon: an appropriate social media platform for the 2020s 🐘 – Robin Lovelace">
+<meta name="twitter:description" content="Personal website of Robin Lovelace">
+<meta name="twitter:image" content="https://robinlovelace.net/posts/2022-11-05-mastodon/files/images/avatar.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Robin Lovelace</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software/"> 
+<span class="menu-text">Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/"> 
+<span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications/"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact/"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Robinlovelace" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../posts.xml" target="_blank"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-why-mastodon" id="toc-introduction-why-mastodon" class="nav-link active" data-scroll-target="#introduction-why-mastodon">Introduction: why Mastodon</a></li>
+  <li><a href="#which-mastodon-server-to-join" id="toc-which-mastodon-server-to-join" class="nav-link" data-scroll-target="#which-mastodon-server-to-join">Which Mastodon server to join?</a></li>
+  <li><a href="#getting-set-up" id="toc-getting-set-up" class="nav-link" data-scroll-target="#getting-set-up">Getting set-up</a></li>
+  <li><a href="#crossposting-with-moa.party" id="toc-crossposting-with-moa.party" class="nav-link" data-scroll-target="#crossposting-with-moa.party">Crossposting with moa.party</a></li>
+  <li><a href="#appropriate-social-media-platforms-for-the-2020s" id="toc-appropriate-social-media-platforms-for-the-2020s" class="nav-link" data-scroll-target="#appropriate-social-media-platforms-for-the-2020s">Appropriate social media platforms for the 2020s</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Setting-up Mastodon: an appropriate social media platform for the 2020s 🐘</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 5, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This post provides tips on setting-up a Mastodon account. It’s mostly focussed on the tech but it deserves a brief intro on the wider context motivating this blog post. It covers:</p>
+<ul>
+<li>Why Mastodon?</li>
+<li>Which Mastodon server to choose?</li>
+<li>Getting set-up</li>
+<li>Crossposting to Twitter with moa.party</li>
+<li>Thoughts on appropriate social media platforms for the 2020s</li>
+</ul>
+<section id="introduction-why-mastodon" class="level1">
+<h1>Introduction: why Mastodon</h1>
+<p>Twitter has been purchased by Elon Musk, a prominent <a href="https://www.youtube.com/watch?v=DxREm3s1scA">technologist</a> and <a href="https://www.marketwatch.com/story/elon-musk-is-just-another-car-salesman-2019-04-22">car salesperson</a> with <a href="https://www.npr.org/2022/10/31/1132906782/elon-musk-twitter-pelosi-conspiracy">questionable judgement</a> when it comes to social media. This, in combination with <a href="https://www.theguardian.com/technology/2022/oct/28/twitter-takeover-fears-raised-over-disinformation-and-hate-speech">evidence</a> of rapid spread of disinformation and hatred centralised platforms, has triggered a period of rapid change for Twitter, to put it mildly.</p>
+<p>According to one user on the Twitter alternative Mastodon (the topic of this post):</p>
+<blockquote class="blockquote">
+<p>A collapse in ad revenues has been followed with an immediate 50% reduction in employee headcount.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><a href="https://nitter.it/ShannonRSingh/status/1588591603622772736">Brace, Brace</a>!</p>
+</blockquote>
+<p>Incidentally, for a taster, this is how the post looks on the platform (surprisingly similar to Twitter):</p>
+<iframe src="https://fosstodon.org/@rochelimit/109290440817278785/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://fosstodon.org/embed.js" async="async"></script>
+<p>Even the founder of Twitter, Jack Dorsey, signalled his regret about the direction of travel of the platform that he pioneered:</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+
+Folks at Twitter past and present are strong and resilient.
+They will always find a way no matter how difficult the moment.
+I realize many are angry with me.
+I own the responsibility for why everyone is in this situation: I grew the company size too quickly.
+I apologize for that.
+
+</p>
+
+— @jack <a href="https://twitter.com/jack/status/1588913276980633600?ref_src=twsrc%5Etfw">November 5, 2022</a>
+
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>These statements and associated events create two broad reasons to explore alternatives for people like me who like to share my views and engage in open and hopefully civil communications:</p>
+<ol type="1">
+<li>Many people do not want to be part of a platform that is becoming increasingly toxic.</li>
+<li>If the rate of change accelerates, some have suggested that the future of Twitter itself is at risk and it may be prudent to have some redundancy in your social media plans if so.</li>
+</ol>
+<p>Regarding the second point, the changes outlined above have the potential to generate knock-on feedback loops, as highlighted by people on <a href="https://twitter.com/search?q=%23twitterdown">Twitter</a> and elsewhere. So where to go?</p>
+<p>There are lots of alternatives but Mastodon is mature, relatively well-known and similar to Twitter in many ways (La Cava, Greco, and Tagarelli 2022). It has more than 30k stars on GitHub: much loved by users and developers alike.</p>
+<p><img src="https://img.shields.io/github/stars/mastodon/mastodon?style=social" alt="GitHub Repo stars"></p>
+<p>Furthermore, <a href="https://twitter.com/search?q=%23Mastodon&amp;src=typeahead_click">#Mastodon</a> is trending on Twitter itself, signalling a group dynamic element. Many of the people I rate and follow on Twitter are already on Mastodon, including <a href="https://fosstodon.org/@underdarkGIS">@underdarkGIS</a>, <a href="https://fosstodon.org/@djnavarro">@djnavarro</a> and <a href="https://toot.community/@UrbanDemog">@UrbanDemog</a>.</p>
+<p>Fun theory on this: Elon Musk is genuinely committed to creating a more open world. But his approach to achieving it is not to “‘Open Source’ Twitter’s Algorithms” as stated in a <a href="https://www.bloomberg.com/news/articles/2022-04-28/why-musk-wants-to-open-source-twitter-s-algorithms-quicktake?leadSource=uverify%20wall">Bloomberg article</a> earlier this year, but to deliberately sabotage proprietary platforms so that open source alternatives flourish. That may seem far fetched but if it was Elon’s true aim he has been successful: Mastodon already has a strong developer community (Mastodon’s codebase has almost <a href="https://github.com/mastodon/mastodon/graphs/contributors">700 contributors from around the world</a>) and could represent a short cut to ensuring that the dominant platforms people use are open source.</p>
+<p>As outlined in a <a href="https://hub.fosstodon.org/elon-twitter-post-mortem/">post</a> by the people who run the fosstodon instance, sign-ups to the server are booming.</p>
+<p><img src="https://hub.fosstodon.org/assets/images/fosstodon-user-stats.webp" class="img-fluid"></p>
+<p>So, assuming you want to join, let’s take a dive in!</p>
+</section>
+<section id="which-mastodon-server-to-join" class="level1">
+<h1>Which Mastodon server to join?</h1>
+<p>Short answer: it’s up to you. Fosstodon.org seems like a good option to me. The choice of Mastodon server is covered in a blog post by Danielle Navarro, who points out advantages of the more decentralised model compared with Twitter’s centralised model:</p>
+<blockquote class="blockquote">
+<p>First off, mastodon is not a single application: it’s a distributed network of servers that all talk to each other using a shared protocol. If two servers talk to each other they are said to be “federated” with one another, and the network as a whole is referred to as the “fediverse”.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>There are many different servers out there that are independently running mastodon: these are called mastodon instances. You can sign up for an account at one or more of these servers. The most popular instance is mastodon.social, but for reasons I’ll talk about in a moment this might not be the best choice for you!</p>
+</blockquote>
+<p>That <a href="https://blog.djnavarro.net/posts/2022-11-03_what-i-know-about-mastodon/">post</a> goes on to highlight a key benefit of the approach: it does not matter that much which your primary account is because you can still interact with federated instances. You can choose from a range of servers, some of which are described later in the <a href="https://blog.djnavarro.net/posts/2022-11-03_what-i-know-about-mastodon/#which-server-should-i-sign-up-on,">post</a> based on your interests. Fosstodon.org is a reasonable choice for people interested in free and open source software and data science but there are many other good options, including:</p>
+<ul>
+<li><a href="https://fosstodon.org/">fosstodon.org</a> one of the big ones with 30k+ users including my Geocomputation with R colleague <a href="https://fosstodon.org/web/@nowosad">Jakub Nowosad</a> and <a href="https://fosstodon.org/web/@underdarkGIS">Anita Graser</a></li>
+<li><a href="https://masto.pt">masto.pt</a>, a server for Portuguese communities with 3k+ users, home to <a href="https://fosstodon.org/web/@rosa@masto.pt">Rosa Felix</a></li>
+<li><a href="https://mapstodon.space/about">mapstodon.space</a>, a new server for mapping, currently with just over 100 <a href="https://mapstodon.space/explore">users</a> including <a href="https://mapstodon.space/@alexsingleton">Alex Singleton</a></li>
+<li>mastodon.online, home to many people including <a href="https://fosstodon.org/web/@paezha@mastodon.online">Antonio Paez</a> and <a href="https://fosstodon.org/web/@caitrobinson@mastodon.online">Cait Robinson</a></li>
+<li><a href="https://sciences.social">sciences.social</a>, home to <a href="https://fosstodon.org/web/@barneyharris@sciences.social">Barney Harris</a></li>
+<li><a href="https://toot.community/">toot.community</a>, home of <a href="https://toot.community/@UrbanDemog">Rafael Pereira</a></li>
+<li><a href="https://mastodon.green">mastodon.green</a>, home to <a href="https://fosstodon.org/web/@dataknut@mastodon.green">Ben Anderson</a></li>
+</ul>
+<p>A really cool thing about this list, other than the diversity, is that people can and do follow each other between those instances. To see a list of the top instances at <a href="https://instances.social/list/advanced#lang=&amp;allowed=&amp;prohibited=&amp;min-users=20000&amp;max-users=">instances.social</a>.</p>
+</section>
+<section id="getting-set-up" class="level1">
+<h1>Getting set-up</h1>
+<p>The sign-up process is fairly simple: choose a server from and click to sign up! There are detailed instructions in many articles online, one of the best I have found is published by <a href="https://www.pcmag.com/how-to/how-to-get-started-on-mastodon-and-leave-twitter-behind">PC Mag</a>.</p>
+</section>
+<section id="crossposting-with-moa.party" class="level1">
+<h1>Crossposting with moa.party</h1>
+<p><a href="https://en.wikipedia.org/wiki/Crossposting">Crossposting</a> is the process of automatically posting from one platform or account to one or more other platforms or accounts. Although I like what I’ve seen of Mastodon so far, no online system can be guaranteed to see 100% uptime. Indeed, the great people running fosstodon.org <a href="https://hub.fosstodon.org/elon-twitter-post-mortem/">outlined</a> issues that they have faced already:</p>
+<blockquote class="blockquote">
+<p>This [surge of interest in alternatives to Twitter] effectively resulted in a sustained DDoS that lasted for around 36 hours. As you can imagine, that was a lot of fun for myself and the team.</p>
+</blockquote>
+<p>As shown in the screenshot below, I even experienced some temporary downtime shortly after joining (and getting lots of boosts):</p>
+<p><img src="https://user-images.githubusercontent.com/1825120/200144334-77132202-1c71-40ce-9a56-f2f1fb869a56.png" class="img-fluid"></p>
+<p>In this context, redundancy is good. Furthermore, while I may have the capacity to set-up a new social media account, I cannot guarantee that others will. So, unlike the author of the PC Mag article on migrating, I plan to keep my Twitter account alive. If you do, crossposting can be good for various reasons, in particular for accessibility: making work widely available to the public is one way to maximise the chances of your work having positive impact beyond your immediate sphere of influence.</p>
+<p>So how to crosspost? Simple answer: enter <a href="https://moa.party/">moa.party</a>.</p>
+<p>As shown in the screenshot below, you can choose the options that are appropriate for you.</p>
+<p><img src="https://user-images.githubusercontent.com/1825120/200141939-c6146a3c-2f2c-4932-80a7-8f6d1e0fe689.png" class="img-fluid"></p>
+<p>After that it simply worked! I ‘tooted’ from my Masterdon account and, after a minute or so, the same content appeared on Twitter. Magic thanks to moa.party!</p>
+<p>I cannot guarantee that it will always work and I don’t know how scalable the service is. But for now I’m stoked that not only have I set-up a new social media account — on a platform that is based on open source software and community values — but also have a way to get my work out to as many people as possible. The two versions of the message below show that Masterdon toots are very similar to Twitter tweets, spot the difference!</p>
+<iframe src="https://fosstodon.org/@robinlovelace/109293378666394451/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://fosstodon.org/embed.js" async="async"></script>
+<p>vs..</p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+
+OK here goes, first attempt at ‘tooting’ from my new <a href="https://twitter.com/hashtag/mastodon?src=hash&amp;ref_src=twsrc%5Etfw">\#mastodon</a> account 🐘 📢 Topic: georectifying <a href="https://twitter.com/hashtag/CAD?src=hash&amp;ref_src=twsrc%5Etfw">\#CAD</a> drawing of housing development and geodigitizing <a href="https://twitter.com/hashtag/osm?src=hash&amp;ref_src=twsrc%5Etfw">\#osm</a> data.
+Appropriate topic for <a href="https://twitter.com/hashtag/fosstodon?src=hash&amp;ref_src=twsrc%5Etfw">\#fosstodon</a>?
+Hope so, more soon!
+<a href="https://t.co/fwnHJeY9Mj">pic.twitter.com/fwnHJeY9Mj</a>
+
+</p>
+
+— @robinlovelace <a href="https://twitter.com/robinlovelace/status/1589010753633325062?ref_src=twsrc%5Etfw">November 5, 2022</a>
+
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Even if Twitter does become the MySpace of the 2020s, it is unlikely to happen over night. And the platform has many great people, despite some of the recent changes outlined above. Let’s see what happens. If nothing else, having alternatives like Mastodon allows you to choose to interact in the virtual spaces where you feel most at home.</p>
+</section>
+<section id="appropriate-social-media-platforms-for-the-2020s" class="level1">
+<h1>Appropriate social media platforms for the 2020s</h1>
+<p>That brings me to my final thoughts on the topic, which informed the title of this article. What are the desirable attributes of social media platforms in the 2020s? A bit like with software, people choosing social media platforms today are lucky simply because they can choose. When MySpace, Facebook and other sites first launched they had ‘first mover’ advantage. There are now many options. I really liked (and still do like, on a good day) Twitter because, unlike Facebook or LinkedIn, it had (and still has) a publicly-accessible-by-default policy. That encourages sharing, transparency and collaboration across borders and cultures.</p>
+<p>Unlike Twitter, however, many of the fastest groing social media platforms of the 2020s open source. This discourages (but may not completely prevent) abuses by the owners of the platforms for financial incentives. The excesses of large for-profit social media platforms are well documented in documentaries like <a href="https://en.wikipedia.org/wiki/The_Social_Dilemma">The Social Dilemma</a>. The fact that emerging social media platforms such as Mastodon are open source is not just important for transparency and data security: it encourages innovation and diversity. This applies to open source software in general, encouraging participation in knowledge creation (Dhir and Dhir 2017).</p>
+<p>When the underlying technology is open, people are encouraged to set-up their own instances, spreading the compute, moderation, and content creation work widely. If you don’t like a particular space in this ‘fediverse’ world, you can simply move. And migrating from one Mastodon server to another <em>is easy</em>, as I have found, following in the <a href="https://twitter.com/underdarkGIS/status/1588645497988091904">footsteps of Anita Graser</a>: I set-up a Mastodon instance at <a href="https://mastodon.social/@robinlovelace" class="uri">https://mastodon.social/@robinlovelace</a> years ago out of interest. That now redirects to my current Mastodon home <a href="https://fosstodon.org/@robinlovelace"><span class="citation" data-cites="robinlovelace">(<span><strong>robinlovelace?</strong></span>)</span><span class="citation" data-cites="fosstodon.org">(<span><strong>fosstodon.org?</strong></span>)</span></a>.</p>
+<p>In summary, there are good reasons for exploring alternatives to centralised for-profit social media platforms. Mastodon is relatively easy to set-up and seems to enable 2-way crossposting with Twitter. And social media platforms that are appropriate for the 2020s are:</p>
+<ul>
+<li>✅ Open source</li>
+<li>✅ Easy to migrate to and from different servers without lock-in</li>
+<li>✅ Fun to be a part of</li>
+</ul>
+<p>Mastodon ticks all those boxes and I recommend checking it out. I also recommend donating to the free and open social media platform of your choice. I have just set-up a recurring donation to <a href="https://hub.fosstodon.org/support/">fosstodon.org</a> via their <a href="https://www.patreon.com/fosstodon">Patreon page</a>. If that helps the ad free and seemingly good quality content to its users (while minimising downtime ; ), it’s money well spent for me. I’m glad to have received the message below!</p>
+<p><img src="https://user-images.githubusercontent.com/1825120/200148636-9db04d94-3641-4914-961e-186e0089629c.png" class="img-fluid"></p>
+<p>Like most people I am new to this space and am learning. So any tips/corrections that people have, like the reply to my first toot below from <a href="https://fosstodon.org/web/@rudolf/109293436746688975"><code>@rudolf@fosstodon.org</code></a> (thanks for the tip Rudolf!), are welcome on <a href="https://fosstodon.org/web/@robinlovelace/109297069622120822">Mastodon</a>, <a href="https://twitter.com/robinlovelace/status/1589243690224332801">Twitter</a>, comments below or anywhere.</p>
+<iframe src="https://fosstodon.org/@rudolf/109293436746688975/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://fosstodon.org/embed.js" async="async"></script>
+<p>As all social media platform pioneers know, the most valuable thing you can contribute is good content, however. I plan to post high quality content online, increasing the signal-to-noise ratio in online comms, countering disinformation, and building strong communities in the process. I hope you will too. Be the change!</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<div id="ref-lacava2022" class="csl-entry" role="listitem">
+La Cava, Lucio, Sergio Greco, and Andrea Tagarelli. 2022. “Information Consumption and Boundary Spanning in Decentralized Online Social Networks: The Case of Mastodon Users.” <em>Online Social Networks and Media</em> 30 (July): 100220. <a href="https://doi.org/10.1016/j.osnem.2022.100220" class="uri">https://doi.org/10.1016/j.osnem.2022.100220</a>.
+</div>
+</section></main></div>
+
+
+
+
+ <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("^(?:http:|https:)\/robinlovelace\.net\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+ <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<a href="https://github.com/Robinlovelace">Robin Lovelace</a> ©
+<script>document.write(new Date().getFullYear())</script>
+</div>   
+    <div class="nav-footer-center">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Robinlovelace/robinlovelace.github.io" target="_blank">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../posts.xml" target="_blank">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
