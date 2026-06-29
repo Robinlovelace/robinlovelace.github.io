@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robin Lovelace">
+<meta name="dcterms.date" content="2018-10-27">
+<meta name="description" content="Personal website of Robin Lovelace">
+
+<title>Aggregating lines, Part I – Robin Lovelace</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6a50bd621f08fdc5c26e43d254df0a90.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-9bfc61b20ce54e18ae6b25bf56d136e1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6a50bd621f08fdc5c26e43d254df0a90.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d7453f824c06e68e010e05e327863804.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1c296fe05333ac327c4c8cf067219a8e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d7453f824c06e68e010e05e327863804.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../custom.css">
+<meta property="og:title" content="Aggregating lines, Part I – Robin Lovelace">
+<meta property="og:description" content="Personal website of Robin Lovelace">
+<meta property="og:image" content="https://robinlovelace.net/posts/2018-10-27-aggregating-lines/files/images/avatar.png">
+<meta property="og:site_name" content="Robin Lovelace">
+<meta name="twitter:title" content="Aggregating lines, Part I – Robin Lovelace">
+<meta name="twitter:description" content="Personal website of Robin Lovelace">
+<meta name="twitter:image" content="https://robinlovelace.net/posts/2018-10-27-aggregating-lines/files/images/avatar.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Robin Lovelace</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software/"> 
+<span class="menu-text">Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events/"> 
+<span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications/"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact/"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Robinlovelace" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../posts.xml" target="_blank"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#why-aggregate-lines" id="toc-why-aggregate-lines" class="nav-link" data-scroll-target="#why-aggregate-lines">Why aggregate lines?</a></li>
+  <li><a href="#aggregating-lines-with-overline-mki" id="toc-aggregating-lines-with-overline-mki" class="nav-link" data-scroll-target="#aggregating-lines-with-overline-mki">Aggregating lines with overline() MKI</a></li>
+  <li><a href="#aggregating-lines-with-sf" id="toc-aggregating-lines-with-sf" class="nav-link" data-scroll-target="#aggregating-lines-with-sf">Aggregating lines with sf</a></li>
+  <li><a href="#a-benchmark" id="toc-a-benchmark" class="nav-link" data-scroll-target="#a-benchmark">A benchmark</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Aggregating lines, Part I</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">r</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 27, 2018</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>It’s been a busy 12 months but with the <a href="https://geocompr.robinlovelace.net/">Geocomputation with R</a> book nearing completion<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> I’ve finally found some time to update my blog and do a bit of thinking, about the tangled topic of line aggregation.</p>
+</section>
+<section id="why-aggregate-lines" class="level2">
+<h2 class="anchored" data-anchor-id="why-aggregate-lines">Why aggregate lines?</h2>
+<p>The transport ‘flow’ on any particular segment of the transport networks is the aggregate (sum) of trips that pass through it (Hollander 2016). Finding the flow across a transport network based on input data composed of individual routes, is therefore an aggregation problem. It requires a more complex solution than that provided by the <code>aggregate()</code> function in the base R (R Core Team 2018) package <strong>stats</strong>, however, because the geometry of the output <code>LINESTRING</code>s will be fundamentally different than the input <code>LINESTRINGS</code> of the routes: a route network is composed of many small way segments, but a route is a single long <code>LINESTRING</code>.</p>
+</section>
+<section id="aggregating-lines-with-overline-mki" class="level2">
+<h2 class="anchored" data-anchor-id="aggregating-lines-with-overline-mki">Aggregating lines with overline() MKI</h2>
+<p>Creating such a route network, with aggregated values per segment, is the problem that the <a href="https://ropensci.github.io/stplanr/reference/overline.html"><code>overline()</code></a> function in the R package <a href="https://github.com/ropensci/stplanr"><strong>stplanr</strong></a> was designed to solve (see a 3.5 yr-old question on <a href="https://gis.stackexchange.com/questions/139681/overlaying-lines-and-aggregating-their-values-for-overlapping-segments">gis.stackexchange.com</a> for more context).</p>
+<p>The function works well and is the basis of the Route Network layer (MSOA) in the Propensity to Cycle Tool (<a href="http://www.pct.bike/">PCT</a>). In fact it was developed precisely for this purpose, as illustrated in the image below, which shows a common visualization/analysis problem encountered by transport researchers when working with multiple routes: overlapping routes are not easy to identify from non-overlapping routes: notice the red lines in the centre of Leeds in the image look the same as the red lines on the outskirts, despite representing much more movement.</p>
+<p>To overcome the problem <code>overline()</code> was born (credit to Barry Rowlingson who wrote the foundations of the function), and it works (on a tiny dataset of 2 lines) as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stplanr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sl_sp <span class="ot">=</span> routes_fast[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, ]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sl_sp<span class="sc">@</span>data <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">value =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sl_sp, <span class="at">lwd =</span> <span class="dv">9</span>, <span class="at">col =</span> <span class="st">"yellow"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>rnet_sp <span class="ot">=</span> <span class="fu">overline</span>(sl_sp, <span class="at">attr =</span> <span class="st">"value"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rnet_sp, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lwd =</span> rnet_sp<span class="sc">$</span>value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The utility of such a function is illustrated in the figure below, which shows the original route network layer of the PCT in action over a similar area of Leeds:</p>
+<p>This works great and the resulting network is used for strategic network planning: you can download route network data in the ‘Region data’ tab of the PCT (Lovelace et al.&nbsp;2017). The route network data for Leeds can, for example, be downloaded as a <code>.geojson</code> file from <a href="https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/west-yorkshire/rnet.geojson">here</a>.</p>
+<p>But there are some issues: the function works on the older <code>SpatialLinesDataFrame</code> class defined in the <strong>sp</strong> package (Pebesma 2018). This data class has been superseded by the simpler <code>sf</code> class in the <a href="https://github.com/r-spatial/sf"><strong>sf</strong></a> package, which is faster than <strong>sp</strong> for <a href="https://github.com/ATFutures/geobench">some</a> (if not many) operations. Another issue with <code>overline()</code> is that in some cases when 2 lines meet, the resulting aggregated line can be longer than it should be. So there are performance and functionality issues to address. Rather than solve them all here, this post sets-out the issue using reproducible code and suggests next steps for a new <code>overline()</code> function (or perhaps just an updated <code>overline.sf()</code> function which currently just wraps <code>overline.sp()</code>).</p>
+</section>
+<section id="aggregating-lines-with-sf" class="level2">
+<h2 class="anchored" data-anchor-id="aggregating-lines-with-sf">Aggregating lines with sf</h2>
+<p>Rather that starting from scratch and writing a geographic algorithm from the ground-up, we will start by exploring solutions provided by existing packages, notably <strong>sf</strong>, which provides an interface to the <code>GEOS</code> library.</p>
+<p>Let’s start simple, with just 2 lines, which have an associated amount of flow (with illustrative values of 2 and 5 in this case):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stplanr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sl <span class="ot">=</span> routes_fast_sf[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, ]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sl<span class="sc">$</span>value <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>These lines clearly have a decent amount of overlap, which can be extracted using the function <code>st_intersection()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sl_intersection <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_intersection</span>(sl[<span class="dv">1</span>, ], sl[<span class="dv">2</span>, ])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sl<span class="sc">$</span>geometry, <span class="at">lwd =</span> <span class="dv">9</span>, <span class="at">col =</span> sf<span class="sc">::</span><span class="fu">sf.colors</span>(<span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sl_intersection, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Furthermore, we can find the aggregated value associated with this new segment as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sl_intersection<span class="sc">$</span>value <span class="ot">=</span> <span class="fu">sum</span>(sl_intersection<span class="sc">$</span>value, sl_intersection<span class="sc">$</span>value<span class="fl">.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We still do not have a full route network composed of 3 non-overlapping lines, however: the original lines need to be ‘clipped’ so that they do not overlap with <code>sl_intersection</code>. This can be done as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sl_seg1 <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_difference</span>(sl[<span class="dv">1</span>, ], sl_intersection)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sl_seg2 <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_difference</span>(sl[<span class="dv">2</span>, ], sl_intersection)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sl<span class="sc">$</span>geometry, <span class="at">lwd =</span> <span class="dv">9</span>, <span class="at">col =</span> sf<span class="sc">::</span><span class="fu">sf.colors</span>(<span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sl_seg1, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sl_seg2, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We now have all the geographic components needed for a route network. The only remaining task is to combine them, using <code>rbind</code>, right? Not quite: the following command fails:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rnet <span class="ot">=</span> <span class="fu">rbind</span>(sl_seg1, sl_seg2, sl_intersection)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Lesson: we need to be more careful in isolating the value to aggregate. We will therefore run the previous stages again, but with <code>attrib</code> set to the attribute we would like to aggregate over (<code>value</code> in this case):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>attrib <span class="ot">=</span> <span class="st">"value"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>attrib1 <span class="ot">=</span> <span class="fu">paste0</span>(attrib, <span class="st">".1"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sl_intersection <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_intersection</span>(sl[<span class="dv">1</span>, attrib], sl[<span class="dv">2</span>, attrib])</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sl_intersection[[attrib]] <span class="ot">=</span> sl_intersection[[attrib]] <span class="sc">+</span> sl_intersection[[attrib1]]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>sl_intersection[[attrib1]] <span class="ot">=</span> <span class="cn">NULL</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>That leaves us with a ‘clean’ object that only has a value (7) for the attribute column name we want (<code>value</code>).</p>
+<p>On this basis we can proceed to create the other segments, keeping only the column we’re interested in. To save time and typing, we’ll create both segments in a single command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sl_seg <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_difference</span>(sl[attrib], sf<span class="sc">::</span><span class="fu">st_geometry</span>(sl_intersection))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>rnet <span class="ot">=</span> <span class="fu">rbind</span>(sl_intersection, sl_seg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It worked! Now we’re in a position to plot the resulting route network, with ‘width’ proportional to the flow along each segment:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(rnet, <span class="at">lwd =</span> rnet<span class="sc">$</span>value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="a-benchmark" class="level2">
+<h2 class="anchored" data-anchor-id="a-benchmark">A benchmark</h2>
+<p>To test that the method is fast, or is at least not slower than the original <code>overline()</code> function, at least for this task, we’ll package-up the method in a new function:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>overline_sf2 <span class="ot">=</span> <span class="cf">function</span>(sl, attrib) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  attrib <span class="ot">=</span> <span class="st">"value"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  attrib1 <span class="ot">=</span> <span class="fu">paste0</span>(attrib, <span class="st">".1"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  sl_intersection <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_intersection</span>(sl[<span class="dv">1</span>, attrib], sl[<span class="dv">2</span>, attrib])</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  sl_intersection[[attrib]] <span class="ot">=</span> sl_intersection[[attrib]] <span class="sc">+</span> sl_intersection[[attrib1]]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  sl_intersection[[attrib1]] <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  sl_seg <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_difference</span>(sl[attrib], sf<span class="sc">::</span><span class="fu">st_geometry</span>(sl_intersection))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  rnet <span class="ot">=</span> <span class="fu">rbind</span>(sl_intersection, sl_seg)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(rnet)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you are new to scripts/algorithms/functions, it may be worth taking a look at the new <a href="https://geocompr.robinlovelace.net/algorithms.html">Algorithms</a> chapter in our near-complete book that teaches a range of geographic methods that use R (Lovelace, Nowosad, and Muenchow 2019). Now the method has been put in a function, we can compare its performance with the per-existing <code>overline()</code> function for comparison:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>bench<span class="sc">::</span><span class="fu">mark</span>(<span class="at">check =</span> F,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">overline.sp =</span> <span class="fu">overline</span>(sl_sp, <span class="at">attrib =</span> <span class="st">"value"</span>),</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">overline.sf =</span> <span class="fu">overline</span>(sl, <span class="at">attrib =</span> <span class="st">"value"</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">overline_sf2 =</span> <span class="fu">overline_sf2</span>(sl, <span class="at">attrib =</span> <span class="st">"value"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The results are not Earth-shattering: the new function seems to be around the same speed as the original, if a little faster. This is great news, but remember: the new function only works on 2 lines so is much simpler. More work needed!</p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>The next step is to generalist this method so it works for many (potentially thousands) of lines in a way that scales, something that should help on the visualization side, a topic that attracts much interest (see for example this <a href="https://gis.stackexchange.com/questions/778/representation-of-network-flows">gis.stackexchange post</a> on the subject and, more broadly, a recent <a href="https://nowosad.github.io/post/maps-distortion/">article</a> showing how to make animated maps by Jakub Nowosad). There is also work to do on performance but, as Donald Knuth said (Knuth 1974):</p>
+<blockquote class="blockquote">
+<p>premature optimization is the root of all evil (or at least most of it) in programming</p>
+</blockquote>
+<p>So a more complete <code>overline.sf()</code> function is needed. That will (hopefully) be the topic of the next blog post.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="ref-knuth_computer_1974" class="csl-entry" role="listitem">
+Knuth, Donald E. 1974. “Computer Programming As an Art.” <em>Commun. ACM</em> 17 (12): 667–73. <a href="https://doi.org/10.1145/361604.361612" class="uri">https://doi.org/10.1145/361604.361612</a>.
+</div>
+<div id="ref-lovelace_propensity_2017" class="csl-entry" role="listitem">
+Lovelace, Robin, Anna Goodman, Rachel Aldred, Nikolai Berkoff, Ali Abbas, and James Woodcock. 2017. “The Propensity to Cycle Tool: An Open Source Online System for Sustainable Transport Planning.” <em>Journal of Transport and Land Use</em> 10 (1). <a href="https://doi.org/10.5198/jtlu.2016.862" class="uri">https://doi.org/10.5198/jtlu.2016.862</a>.
+</div>
+<div id="ref-lovelace_geocomputation_2019" class="csl-entry" role="listitem">
+Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. <em>Geocomputation with R</em>. CRC Press.
+</div>
+<div id="ref-pebesma_simple_2018" class="csl-entry" role="listitem">
+Pebesma, Edzer. 2018. “Simple Features for R: Standardized Support for Spatial Vector Data.” <em>The R Journal</em>.
+</div>
+<div id="ref-rcoreteam_language_2018" class="csl-entry" role="listitem">
+R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing.
+</div>
+</section><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Any input on that still welcome - see the <a href="https://geocompr.robinlovelace.net/index.html#how-to-contribute">contributing</a> section for more.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main></div>
+
+
+
+
+
+ <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("^(?:http:|https:)\/robinlovelace\.net\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="light">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "Robinlovelace/robinlovelace.net";
+    script.dataset.repoId = "MDEwOlJlcG9zaXRvcnk4OTg2MzAyMw==";
+    script.dataset.category = "Announcements";
+    script.dataset.categoryId = "DIC_kwDOBVszb84C_L-t";
+    script.dataset.mapping = "pathname";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "bottom";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
+ <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<a href="https://github.com/Robinlovelace">Robin Lovelace</a> ©
+<script>document.write(new Date().getFullYear())</script>
+</div>   
+    <div class="nav-footer-center">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Robinlovelace/robinlovelace.github.io" target="_blank">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../posts.xml" target="_blank">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script data-goatcounter="https://YOURCODE.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+<script>
+(async function() {
+  try {
+    const r = await fetch('/deploy.json');
+    if (!r.ok) return;
+    const d = await r.json();
+    const ft = document.querySelector('.nav-footer-center');
+    if (ft) ft.innerHTML += ' · <span class="deploy-timestamp">Deployed ' + d.date + '</span>';
+  } catch(e) {}
+})();
+</script>
+
+
+
+
+</body></html>
